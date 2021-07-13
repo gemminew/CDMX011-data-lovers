@@ -7,7 +7,11 @@ animados como **Mi vecino Totoro**, **El viaje de Chihiro** o
 Las animaciones tienen gran acogida a nivel mundial y algunas han recibido
 varias nominaciones y premios. De todo este fandom hay un grupo que desea poder
 interactuar y ver la información de las animaciones y sus personajes.
+ kk;'
+ kkkk
+ lllllklk
 
+ jjj
 ## Hallazgos
 
 Para entender mejor qué información podrían necesitar nuestras usuarias,
