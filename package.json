@@ -1,0 +1,50 @@
+{
+  "_from": "git+https://github.com/gemminew/CDMX011-data-lovers.git",
+  "_id": "data-lovers@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/data-lovers",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/gemminew/CDMX011-data-lovers.git",
+    "rawSpec": "https://github.com/gemminew/CDMX011-data-lovers.git",
+    "saveSpec": "git+https://github.com/gemminew/CDMX011-data-lovers.git",
+    "fetchSpec": "https://github.com/gemminew/CDMX011-data-lovers.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/gemminew/CDMX011-data-lovers.git#db4d2479efe667b2161e7ff3ad0756e45a7699cf",
+  "_spec": "https://github.com/gemminew/CDMX011-data-lovers.git",
+  "_where": "c:\\Projects",
+  "bundleDependencies": false,
+  "dependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.6.0",
+    "babel-jest": "^27.0.1",
+    "eslint": "^7.12.1",
+    "gh-pages": "^3.1.0",
+    "htmlhint": "^0.14.1",
+    "jest": "^27.0.1",
+    "opener": "^1.5.1",
+    "serve": "^12.0.0"
+  },
+  "deprecated": false,
+  "description": "* [1. Preámbulo](#1-preámbulo)\r * [2. Resumen del proyecto](#2-resumen-del-proyecto)\r * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)\r * [4. Consideraciones generales](#4-consideraciones-generales)\r * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)\r * [6. Hacker edition](#6-hacker-edition)\r * [7. Consideraciones técnicas](#7-consideraciones-técnicas)\r * [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)\r * [9. Checklist](#9-checklist)",
+  "license": "MIT",
+  "main": "src/index.html",
+  "name": "data-lovers",
+  "scripts": {
+    "deploy": "gh-pages -d src",
+    "eslint": "eslint --ext .js src/ test/",
+    "htmlhint": "htmlhint src/*.html test/*.html",
+    "open-coverage-report": "opener ./coverage/lcov-report/index.html",
+    "pretest": "npm run eslint && npm run htmlhint",
+    "start": "serve src/",
+    "test": "jest --verbose --coverage"
+  },
+  "version": "1.0.0"
+}
