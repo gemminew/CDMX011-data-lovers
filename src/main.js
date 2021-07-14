@@ -8,7 +8,7 @@ Adress = posters(data);
 
 
 
-for(i = 0; i <20; i++){ 
+for( let i = 0; i <20; i++){ 
     document.getElementById("film" + i).src=Adress[i];
 }
 /*console.log(posters, data);
