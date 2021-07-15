@@ -16,7 +16,19 @@ export const directorFilter = (Director,data) => {
        console.log(data.films[i].title)
        console.log(data.films[i].producer)
        console.log(data.films[i].description)
-    }else{ continue; }
+    }else
+    if(data.films[i].producer === Director){
+      console.log(data.films[i].title)
+      console.log(data.films[i].producer)
+      console.log(data.films[i].director)
+      console.log(data.films[i].description)
+   }else
+   if(data.films[i].people[2].name === Director){
+    console.log(data.films[i].title)
+    console.log(data.films[i].producer)
+    console.log(data.films[i].director)
+    console.log(data.films[i].description)
+ }else{ continue; }
   }
   return 'OMG';
 };
