@@ -5,7 +5,7 @@ body{
     border: 0px; */
     background-color:  rgba(217, 156, 184, 0.2);
     margin: auto;
-}
+} 
 
 header{
     display: flex;
@@ -80,7 +80,7 @@ header{
     margin: 0px, 10px, 5px, 10px; */
 }
 
-}
+
     
 
 .poster {

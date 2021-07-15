@@ -1,6 +1,6 @@
-import { example } from './data.js';
+import { posters} from './data.js';
 // import data from './data/lol/lol.js';
-import data from './data/pokemon/pokemon.js';
+import data from '../data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
 
 let Adress = [20];
@@ -8,8 +8,7 @@ Adress = posters(data);
 
 
 
-
-for( let i = 0; i <20; i++){ 
+for(let i = 0; i <20; i++){ 
     document.getElementById("film" + i).src=Adress[i];
 }
 /*console.log(posters, data);
