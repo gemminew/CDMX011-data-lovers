@@ -15,9 +15,9 @@ const prueba = document.getElementsByTagName('input');
 for(let i=0 ; i<prueba.length ; i++){
     prueba[i].addEventListener('click', (evt) => { 
         evt.preventDefault();
-        const Director = prueba[i].value;
-        console.log('INTENTO1 '+ Director )
-        directorFilter(Director,data);
+        const Comparativa = prueba[i].value;
+        console.log('INTENTO1 '+ Comparativa )
+        directorFilter(Comparativa,data);
     });
 }
 /*console.log(posters, data);
