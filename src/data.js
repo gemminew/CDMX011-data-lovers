@@ -10,6 +10,25 @@ export const posters = (data) => {
     return DirPoster;
 };
 
-export const anotherExample = () => {
+export const directorFilter = (Comparativa,data) => {
+  for(let i=0 ; i<20 ; i++){
+    if(data.films[i].director === Comparativa){
+       console.log(data.films[i].title)
+       console.log(data.films[i].producer)
+       console.log(data.films[i].description)
+    }else
+    if(data.films[i].producer === Comparativa){
+      console.log(data.films[i].title)
+      console.log(data.films[i].producer)
+      console.log(data.films[i].director)
+      console.log(data.films[i].description)
+   }else { continue; }
+   /**if(data.films[i].people[2].name === Comparativa){
+    console.log(data.films[i].title)
+    console.log(data.films[i].producer)
+    console.log(data.films[i].director)
+    console.log(data.films[i].description)
+ }else*/
+  }
   return 'OMG';
 };
