@@ -53,10 +53,9 @@ header{
 }   
 .carousel{ /**Tuve que cambiarlo a clase i don´t kwon why*/
     max-width: -webkit-fill-available; /*1345px*/
-    height: 300px;
+    height: 200px;
     background-size: cover;
-    background-image: url(img/totoTO.jpg);
-    
+    background-image: url(img/chihirOO.jpg);
 }
 #Banner{
     color: #fff;
