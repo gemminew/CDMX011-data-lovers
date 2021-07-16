@@ -6,7 +6,9 @@ import data from './data/ghibli/ghibli.js';
 let Adress = [20];
 Adress = posters(data);
 
+
 for(let i = 0; i <20; i++){ 
+
     document.getElementById("film" + i).src=Adress[i];
 }
 const prueba = document.getElementsByTagName('input');
