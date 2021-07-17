@@ -14,9 +14,10 @@ export const getDirectors = (data) => {
   data.films.map(film => films.director) //corre el metodo dentro del argumento 
 
 }
-/* 
-export const filterDirectorFilms = (data, director) => {
-  data.films.filter(film => (film.director  )); */
+
+//export const filterDirectorFilms = (data, director) =>
+//films.filter(film => film.director.includes(director))
+
 
 
 
