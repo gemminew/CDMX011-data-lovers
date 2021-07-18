@@ -9,31 +9,7 @@ export const posters = (data) => {
   return DirPoster;
 };
 
-export const getDirectors = (data) => {
- 
-  data.films.map(film => films.director) //corre el metodo dentro del argumento 
-
-}
-
-//export const filterDirectorFilms = (data, director) =>
-//films.filter(film => film.director.includes(director))
-
-
-
-
-
-//element - actual piece of information 
-//index - number which indicates how far along in that array you can find that element (0-beginning/ 2 - position 3 )
-/*export const filterData = {
-
-    filterDirectors: filterFunction() 
-
-      
-  }
-
-  */
-export const directorFilter = (Comparativa,data) => {
- const filteredOut = (dataInput,films) => {
+export const filteredOut = (dataInput,films) => {
   let filmspeople = [];
   for(let i=0 ; i<20 ; i++){
     if(films[i].director === dataInput){
@@ -92,4 +68,3 @@ export const directorFilter = (Comparativa,data) => {
   }
  
 
-}
