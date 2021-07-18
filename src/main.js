@@ -5,19 +5,21 @@ import data from './data/ghibli/ghibli.js';
 
 console.log(data)
 
-let Adress = [20];
-Adress = posters(data);
+let Adress = posters(data);
 
 
-for(let i = 0; i <20; i++){ 
+for(let i = 0; i <data.films.length; i++){ 
 
     document.getElementById("film" + i).src=Adress[i];
 }
 const prueba = document.getElementsByTagName('input');
 
+    
+    
 /**A la funcion de flecha no hay necesidad de poner funcion antes */
 for(let i=0 ; i<prueba.length ; i++){
     prueba[i].addEventListener('click', (evt) => { 
+        document.getElementById('FirstPage').style.display="none"
         evt.preventDefault();
         const dataInput = prueba[i].value;
         console.log('Input: '+ dataInput )

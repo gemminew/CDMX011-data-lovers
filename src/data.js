@@ -1,18 +1,18 @@
 // estas funciones son de ejemplo
 export const posters = (data) => {
-    let DirPoster = [20];
+    let DirPoster = [];
     let i=0;
     do {
-      DirPoster[i]= data.films[i].poster;
+      DirPoster.push(data.films[i].poster);
+      //console.log(DirPoster[i]);
       i++
-      console.log(DirPoster[i]);
-    } while (i<20);
+    } while (i<data.films.length);
     return DirPoster;
 };
 
 export const filteredOut = (dataInput,films) => {
   let filmspeople = [];
-  for(let i=0 ; i<20 ; i++){
+  for(let i=0 ; i<films.length ; i++){
     if(films[i].director === dataInput){
       filmspeople.push(films[i].title)
     }
