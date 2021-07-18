@@ -1,4 +1,4 @@
-import { posters, directorFilter} from './data.js';
+import { posters, filteredOut} from './data.js';
 // import data from './data/lol/lol.js';
 import data from '../data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -12,16 +12,33 @@ for(let i = 0; i <20; i++){
     document.getElementById("film" + i).src=Adress[i];
 }
 const prueba = document.getElementsByTagName('input');
-/**Un evento para cuando le de clntsByClassNamick */
+
 /**A la funcion de flecha no hay necesidad de poner funcion antes */
 for(let i=0 ; i<prueba.length ; i++){
     prueba[i].addEventListener('click', (evt) => { 
         evt.preventDefault();
-        const Comparativa = prueba[i].value;
-        console.log('INTENTO1 '+ Comparativa )
-        directorFilter(Comparativa,data);
+        const dataInput = prueba[i].value;
+        console.log('Input: '+ dataInput )
+        let dataFiltered =['']
+        dataFiltered = filteredOut(dataInput,data.films);
+
+        console.log('main: ')
+        console.log(dataFiltered)
+        console.log(dataFiltered[0][2])
+        console.log(dataFiltered[0][3])
+
+        document.getElementById('Name').innerHTML = dataInput;
+        document.getElementById('filterImg1').src = dataFiltered[0][0];
+        document.getElementById('title1').innerHTML = dataFiltered[0][1];
+        document.getElementById('filmDescription1').innerHTML = dataFiltered[0][3];
     });
 }
+
+
+
+/*const getDirectors = data.films.filter(data.films ,(data.films.title ==="The Cat Returns"));
+console.log(getDirectors)
+
 /*console.log(posters, data);
 console.log(data.films[2].title);
 console.log(data.films[0].people[1].name);
