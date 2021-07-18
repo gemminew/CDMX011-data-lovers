@@ -1,4 +1,4 @@
-import { posters, filteredOut} from './data.js';
+import { posters, directorFilter, producerFilter} from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -8,35 +8,67 @@ console.log(data)
 let Adress = [20];
 Adress = posters(data);
 
-
 for(let i = 0; i <20; i++){ 
-
     document.getElementById("film" + i).src=Adress[i];
 }
 const prueba = document.getElementsByTagName('input');
+const directorEven = document.getElementById('btnDirector');
 
-/**A la funcion de flecha no hay necesidad de poner funcion antes */
-for(let i=0 ; i<prueba.length ; i++){
-    prueba[i].addEventListener('click', (evt) => { 
-        evt.preventDefault();
-        const dataInput = prueba[i].value;
-        console.log('Input: '+ dataInput )
-        let dataFiltered =['']
-        dataFiltered = filteredOut(dataInput,data.films);
 
-        console.log('Numero de peliculas: '+ dataFiltered.length)
+directorEven.addEventListener('click', (evt) =>{
+    evt.preventDefault();
+    for(let i=0 ; i<prueba.length ; i++){
+        prueba[i].addEventListener('click', (evt) => { 
+            evt.preventDefault();
+            const dataInput = prueba[i].value;
+            console.log('Input: '+ dataInput )
+            let dataFiltered =['']
+            dataFiltered = directorFilter(dataInput,data.films);
+            document.getElementById('Name').innerHTML = dataInput;
+            console.log('Numero de peliculas: '+ dataFiltered.length)
+    
+            for(let i = 0; i < dataFiltered.length; i++){ 
+                document.getElementById('filterImg'+ i).src = dataFiltered[i][0];
+                document.getElementById('title'+ i).innerHTML = dataFiltered[i][1];
+                document.getElementById('year'+ i).innerHTML = dataFiltered[i][2];
+                document.getElementById('score'+ i).innerHTML = dataFiltered[i][3];
+                document.getElementById('filmDescription'+ i).innerHTML = dataFiltered[i][4];
+                document.getElementById('producer'+ i).innerHTML = dataFiltered[i][5];
+                document.getElementById('director'+ i).innerHTML = dataFiltered[i][6];
+                document.getElementById('people'+ i).innerHTML = dataFiltered[i][7];
+            }
+        });
+    }
+})
 
-        document.getElementById('Name').innerHTML = dataInput;
-        document.getElementById('filterImg1').src = dataFiltered[0][0];
-        document.getElementById('title1').innerHTML = dataFiltered[0][1];
-        document.getElementById('year1').innerHTML = dataFiltered[0][2];
-        document.getElementById('score1').innerHTML = dataFiltered[0][3];
-        document.getElementById('filmDescription1').innerHTML = dataFiltered[0][4];
-        document.getElementById('producer1').innerHTML = dataFiltered[0][5];
-        document.getElementById('director1').innerHTML = dataFiltered[0][6];
-        document.getElementById('people1').innerHTML = dataFiltered[0][7];
-    });
-}
+const producerEven = document.getElementById('btnProducer');
+producerEven.addEventListener('click', (evt) =>{
+    evt.preventDefault();
+    for(let i=0 ; i<prueba.length ; i++){
+        prueba[i].addEventListener('click', (evt) => { 
+            evt.preventDefault();
+            const dataInput = prueba[i].value;
+            console.log('Input: '+ dataInput )
+            let dataFiltered =['']
+            dataFiltered = producerFilter(dataInput,data.films);
+            document.getElementById('Name').innerHTML = dataInput;
+            console.log('Numero de peliculas: '+ dataFiltered.length)
+    
+            for(let i = 0; i < dataFiltered.length; i++){ 
+                document.getElementById('filterImg'+ i).src = dataFiltered[i][0];
+                document.getElementById('title'+ i).innerHTML = dataFiltered[i][1];
+                document.getElementById('year'+ i).innerHTML = dataFiltered[i][2];
+                document.getElementById('score'+ i).innerHTML = dataFiltered[i][3];
+                document.getElementById('filmDescription'+ i).innerHTML = dataFiltered[i][4];
+                document.getElementById('producer'+ i).innerHTML = dataFiltered[i][5];
+                document.getElementById('director'+ i).innerHTML = dataFiltered[i][6];
+                document.getElementById('people'+ i).innerHTML = dataFiltered[i][7];
+            }
+        });
+    }
+})
+
+
 
 
 
