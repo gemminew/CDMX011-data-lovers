@@ -5,31 +5,28 @@ export const posters = (data) => {
     do {
       DirPoster[i]= data.films[i].poster;
       i++
-      console.log(DirPoster[i]);
+      //console.log(DirPoster[i]);
     } while (i<20);
     return DirPoster;
 };
 
 export const filteredOut = (dataInput,films) => {
-  let filmspeople = [];
-  for(let i=0 ; i<20 ; i++){
-    if(films[i].director === dataInput){
-      filmspeople.push(films[i].title)
-    }
-  }
-  /*for(let i = 0; i < filmspeople.length ; i++){
-     
-  }*/
 
     const directors = films.filter(function(films){
        return films.director === dataInput;})
        .map(function(films){
-         let information = [films.poster, films.title, films.release_date, films.description, films.director, films.producer, films.people];
+        let numberPeople = films.people;
+        let namesOfPeople = [];
+        
+        for(let j=0; j<numberPeople.length; j++){
+          namesOfPeople[j] = films.people[j].name ;
+        }
+
+         let information = [films.poster, films.title, films.release_date, films.rt_score, films.description, films.director, films.producer, namesOfPeople.join()];
          return information 
        })
-       
-       console.log(directors)
 
+       console.log(directors)
        return directors
 //El de productor tendra que estar en otra porque causa conflicto con el director este Hayao Miyasaki
 //o agregar otra balidación o sea cuando dea al boton de director solo me pueda buscar en ese filtro
@@ -66,6 +63,6 @@ export const filteredOut = (dataInput,films) => {
          let names = [peopleFilms.name];
          return names
        })**/
-  }
- 
+  
+}
 
