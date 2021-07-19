@@ -1,19 +1,34 @@
 // estas funciones son de ejemplo
 export const posters = (data) => {
-    let DirPoster = [20];
+    let DirPoster = [];
     let i=0;
     do {
-      DirPoster[i]= data.films[i].poster;
-      i++
+      DirPoster.push(data.films[i].poster);
       //console.log(DirPoster[i]);
-    } while (i<20);
+      i++
+
+    } while (i<data.films.length);
+      //console.log(DirPoster[i]);
     return DirPoster;
 };
 
-export const directorFilter = (dataInput,films) => {
+export const getUniqueValues = (array) => (
+  array.filter((currentValue, index, arr) => (
+      arr.indexOf(currentValue) === index
+  ))
+)
 
-    const directors = films.filter(function(films){
-       return films.director === dataInput;})
+//obtener valores unicos en select input
+//
+export const directorFilter = (dataInput,films) => {
+  /*let filmspeople = [];
+  for(let i=0 ; i<films.length ; i++){
+    if(films[i].director === dataInput){
+      filmspeople.push(films[i].title)
+    }
+  }*/
+    const directorFilms = films.filter(function(films){
+       return films.producer === dataInput;})
        .map(function(films){
         let numberPeople = films.people;
         let namesOfPeople = [];
@@ -23,7 +38,9 @@ export const directorFilter = (dataInput,films) => {
          let information = [films.poster, films.title, films.release_date, films.rt_score, films.description, films.director, films.producer, namesOfPeople.join()];
          return information 
        })
-       return directors
+       console.log(directorFilms);
+       
+       return directorFilms
 }
 
 export const producerFilter = (dataInput,films) => {

@@ -8,26 +8,28 @@
   <body>
     <header>
       <div id="Banner">Studios Ghibli</div>
-      <div class="dropdown">
-        <button id="btnDirector" value="director">Director</button>
-        <ul>
-          <li><input class="character" name="tried" type="submit" value="Hayao Miyazaki"></li>
-          <li><input class="character" name="tried" type="submit" value="Isao Takahata"></li>
-          <li><input class="character" name="tried" type="submit" value="Yoshifumi Kondō"></li>
-          <li><input class="character" name="tried" type="submit" value="Hiroyuki Morita"></li>
-          <li><input class="character" name="tried" type="submit" value="Gorō Miyazaki"></li>
-          <li><input class="character" name="tried" type="submit" value="Hiromasa Yonebayashi"></li>
-        </ul> 
-        <button id="btnProducer">Productor</button>
-        <ul>
-          <li><input class="character" name="Producer" type="submit" value="Toru Hara"></li>
-          <li><input class="character" name="people" type="submit" value="Therru"></li>
-        </ul>
-      </div>
     </header>
     <main>
+      <div class="carousel"></div>
+      <div class="search-bar">   
+        <p><b>Buscar por:</b></p>    
+          <select class="selInput" id="selectDirector">
+            <option value="" selected disabled>Directores</option>
+          </select>
+          <select class="selInput" id="selectProducer">
+            <option value="" selected disabled>Productores</option>
+          </select>
+          <select class="selInput" id="selectCharacter">
+            <option value="" selected disabled>Personajes</option>
+          </select>
+          <select class="selInput" id="selectLocation">
+            <option value="" selected disabled>Locaciones</option>
+          </select>
+          <select class="selInput" id="selectVehicles">
+            <option value="" selected disabled>Vehiculos</option>
+          </select>
+       </div>
       <div id="FirstPage">
-        <div class="carousel"></div>
         <h1 id="title">Todas las peliculas</h1>
         <div id="movies">
           <div class="poster"><img src="" alt="" id="film0"></div>
@@ -53,7 +55,6 @@
         </div> <!--Final movies-->
       </div><!--Fist Page-->
       <div id="SecoundPage">
-        <div class="carousel"></div>
         <h1 id="Name"> </h1>
         <div class="informativeFile">
           <div class="posterFilter"><img src="" id="filterImg0"></div>

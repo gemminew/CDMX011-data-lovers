@@ -45,7 +45,19 @@ header{
     height: 55px; 
 }
 
-#FirstPage{ display: none;}
+.search-bar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: #C9D991;
+}
+
+.selInput {
+    border:0;
+    background:none;
+    -webkit-appearance: none;
+}
+
     
 @media only screen and (min-width: 768px) {
 #carousel{
