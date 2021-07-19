@@ -28,7 +28,7 @@ export const directorFilter = (dataInput,films) => {
     }
   }*/
     const directorFilms = films.filter(function(films){
-       return films.producer === dataInput;})
+       return films.director === dataInput;})
        .map(function(films){
         let numberPeople = films.people;
         let namesOfPeople = [];
