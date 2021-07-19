@@ -94,15 +94,17 @@ const prueba = document.getElementsByTagName('input');
         let dataFiltered =['']
         dataFiltered = filteredOut(dataInput,data.films);
 
-        console.log('main: ')
-        console.log(dataFiltered)
-        console.log(dataFiltered[0][2])
-        console.log(dataFiltered[0][3])
+        console.log('Numero de peliculas: '+ dataFiltered.length)
 
         document.getElementById('Name').innerHTML = dataInput;
         document.getElementById('filterImg1').src = dataFiltered[0][0];
         document.getElementById('title1').innerHTML = dataFiltered[0][1];
-        document.getElementById('filmDescription1').innerHTML = dataFiltered[0][3];
+        document.getElementById('year1').innerHTML = dataFiltered[0][2];
+        document.getElementById('score1').innerHTML = dataFiltered[0][3];
+        document.getElementById('filmDescription1').innerHTML = dataFiltered[0][4];
+        document.getElementById('producer1').innerHTML = dataFiltered[0][5];
+        document.getElementById('director1').innerHTML = dataFiltered[0][6];
+        document.getElementById('people1').innerHTML = dataFiltered[0][7];
     });
 }
 
