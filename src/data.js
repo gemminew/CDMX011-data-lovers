@@ -10,6 +10,15 @@ export const posters = (data) => {
     return DirPoster;
 };
 
+//obtener valores unicos en select input
+export const getUniqueValues = (array) => (
+  array.filter((currentValue, index, arr) => (
+      arr.indexOf(currentValue) === index
+  ))
+)
+
+
+//
 export const filteredOut = (dataInput,films) => {
   let filmspeople = [];
   for(let i=0 ; i<films.length ; i++){
@@ -21,16 +30,28 @@ export const filteredOut = (dataInput,films) => {
      
   }*/
 
-    const directors = films.filter(function(films){
-       return films.director === dataInput;})
+
+    const directorFilms = films.filter(function(films){
+       return films.producer === dataInput;})
        .map(function(films){
          let information = [films.poster, films.title, films.release_date, films.description, films.director, films.producer, films.people];
          return information 
        })
        
-       console.log(directors)
+       console.log(directorFilms)
 
-       return directors
+       return directorFilms
+
+       const producerFilms = films.filter(function(films){
+        return films.producer === dataInput;})
+        .map(function(films){
+          let information = [films.poster, films.title, films.release_date, films.description, films.director, films.producer, films.people];
+          return information 
+        })
+        
+        console.log(producerFilms)
+ 
+        return producerFilms
 //El de productor tendra que estar en otra porque causa conflicto con el director este Hayao Miyasaki
 //o agregar otra balidación o sea cuando dea al boton de director solo me pueda buscar en ese filtro
     /*const producers = films.filter(function(films){
