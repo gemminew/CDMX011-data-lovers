@@ -37,8 +37,23 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
     
      document.getElementById('Name').innerHTML = dataInput;
      console.log('Numero de peliculas: '+ dataFiltered.length)
+    console.log(dataFiltered)
+     /* ----- HTML DINAMICO*/
+     const posterFilter = document.querySelector(".posterFilter"),
+        template =document.getElementById("informativeFile").contentEditable,
+        fragment = document.createDocumentFragment() /*Es para ir almacenando dinamicamente la información*/
+     /*const informativeContent = []  ------ este sera mi dataFiltered*/
 
-     for(let i = 0; i < dataFiltered.length; i++){ 
+    dataFiltered.forEach(element => {
+        template.querySelector(".filterImg ").setAttribute("src", element.poster);
+
+        let clone = document.importNode(template, true);
+        fragment.appendChild(clone);
+    });
+    
+    posterFilter.appendChild(fragment);
+
+     /*for(let i = 0; i < dataFiltered.length; i++){ 
          document.getElementById('filterImg'+ i).src = dataFiltered[i][0];
          document.getElementById('title'+ i).innerHTML = dataFiltered[i][1];
          document.getElementById('year'+ i).innerHTML = dataFiltered[i][2];
@@ -47,7 +62,7 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
          document.getElementById('producer'+ i).innerHTML = dataFiltered[i][5];
          document.getElementById('director'+ i).innerHTML = dataFiltered[i][6];
          document.getElementById('people'+ i).innerHTML = dataFiltered[i][7];
-     }
+     }*/
      
     })
 
