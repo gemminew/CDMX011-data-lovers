@@ -10,6 +10,10 @@ let Adress = posters(data);
 for(let i = 0; i <data.films.length; i++){ 
     document.getElementById("film" + i).src=Adress[i];
 }
+
+function backToMain(){
+    document.getElementById("FirstPage");
+}
 //const prueba = document.getElementsByTagName('input');
 //const directorEven = document.getElementById('btnDirector');
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 body{
 
 /*     padding: 0px;
@@ -5,7 +7,14 @@ body{
     border: 0px; */
     background-color:  rgba(217, 156, 184, 0.2);
     margin: auto;
+    font-family: 'Playfair Display', serif;
 } 
+
+.selInput{
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    font-weight: bold;
+}
 
 header{
     display: flex;
@@ -34,6 +43,7 @@ header{
     padding: 10px; 
     background-color:  rgba(217, 156, 184, 0.2);
     margin: auto;
+    font-family: 'Playfair Display', serif;
 }
     
 header{
@@ -42,7 +52,7 @@ header{
     background-color: #026873;
     text-align: justify;
     padding: .2rem;
-    height: 55px; 
+    height: 72px; 
 }
 
 .search-bar{
@@ -98,3 +108,6 @@ footer{
     height: 60px; 
     background: #C9D991;
 }
+
+
+
