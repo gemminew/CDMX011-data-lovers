@@ -52,7 +52,7 @@ export const producerFilter = (dataInput,films) => {
       for(let j=0; j<numberPeople.length; j++){
         namesOfPeople[j] = films.people[j].name ;
       }
-       let information = [films.poster, films.title, films.release_date, films.rt_score, films.description, films.director, films.producer, namesOfPeople.join()];
+       let information = {poster: films.poster, title: films.title, year: films.release_date, score: films.rt_score, description: films.description, director: films.director, producer: films.producer, characters: namesOfPeople.join()};
        return information 
      })
      return producers
