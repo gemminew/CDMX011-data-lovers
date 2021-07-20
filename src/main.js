@@ -5,15 +5,15 @@ import data from './data/ghibli/ghibli.js';
 
 console.log(data)
 let Adress = posters(data);
-
-
-for(let i = 0; i <data.films.length; i++){ 
-    document.getElementById("film" + i).src=Adress[i];
+///---------- Seccion de la primera pagina donde muestra los posters
+let posterHTML = ""
+Adress.forEach(objeto =>{
+    posterHTML+=generatorPosterHTML(objeto)
+})
+function generatorPosterHTML(objeto){
+    return `<div class="poster"><img src="${objeto}" ></div>`
 }
-//const prueba = document.getElementsByTagName('input');
-//const directorEven = document.getElementById('btnDirector');
-
-////////////------------------------------------------------------------------------------------------------------------
+document.getElementById("movies").innerHTML = posterHTML
 
 //SELECCIONAR DIRECTOR directo DESDE la DATA // ----------------seccion de DIRECTORES
 let selectDir = document.getElementById('selectDirector');
@@ -34,35 +34,31 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
      let dataInput = selectDir.value;
      let dataFiltered =['']
      dataFiltered = directorFilter(dataInput,data.films);  
+     const caption = 'a dirigido '+ dataFiltered.length + ' peliculas';
     
      document.getElementById('Name').innerHTML = dataInput;
+     document.getElementById('caption').innerHTML = caption;
      console.log('Numero de peliculas: '+ dataFiltered.length)
     console.log(dataFiltered)
      /* ----- HTML DINAMICO*/
-     const posterFilter = document.querySelector(".posterFilter"),
-        template =document.getElementById("informativeFile").contentEditable,
-        fragment = document.createDocumentFragment() /*Es para ir almacenando dinamicamente la información*/
-     /*const informativeContent = []  ------ este sera mi dataFiltered*/
+     let directorHTML = ""
+     dataFiltered.forEach( oneDirector =>{
+         directorHTML += generatorDirectorHTML(oneDirector)
+     })
+     function generatorDirectorHTML(oneDirector){
+         return ` <div class="posterFilter"><img src="${oneDirector.poster}" id="filterImg"></div>
+         <div class="Informative">
+           <p><b>Title:  </b><span id="title">${oneDirector.title}</span></p>
+           <p><b>Year: </b><span id="year">${oneDirector.year}</span></p>
+           <p><b>Score: </b><span id="score">${oneDirector.score}</span></p>
+           <p><b>Descripcion: </b><span id='filmDescription'>${oneDirector.description}</span></p>
+           <p><b>Producer: </b><span id="producer">${oneDirector.producer}</span></p>
+           <p><b>Director: </b><span id="director">${oneDirector.director}</span></p>
+           <p><b>Movie characters:  </b><span id="people">${oneDirector.characters}</span></p>
+         </div>`
+     }
 
-    dataFiltered.forEach(element => {
-        template.querySelector(".filterImg ").setAttribute("src", element.poster);
-
-        let clone = document.importNode(template, true);
-        fragment.appendChild(clone);
-    });
-    
-    posterFilter.appendChild(fragment);
-
-     /*for(let i = 0; i < dataFiltered.length; i++){ 
-         document.getElementById('filterImg'+ i).src = dataFiltered[i][0];
-         document.getElementById('title'+ i).innerHTML = dataFiltered[i][1];
-         document.getElementById('year'+ i).innerHTML = dataFiltered[i][2];
-         document.getElementById('score'+ i).innerHTML = dataFiltered[i][3];
-         document.getElementById('filmDescription'+ i).innerHTML = dataFiltered[i][4];
-         document.getElementById('producer'+ i).innerHTML = dataFiltered[i][5];
-         document.getElementById('director'+ i).innerHTML = dataFiltered[i][6];
-         document.getElementById('people'+ i).innerHTML = dataFiltered[i][7];
-     }*/
+     document.getElementById("informativeFile").innerHTML = directorHTML
      
     })
 
@@ -85,24 +81,36 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
      let dataInput = selectProd.value;
      let dataFiltered =['']
      dataFiltered = producerFilter(dataInput,data.films);  
+     const caption = 'a producido '+ dataFiltered.length + ' peliculas';
 
      document.getElementById('Name').innerHTML = dataInput;
+     document.getElementById('caption').innerHTML = caption;
      console.log('Numero de peliculas: '+ dataFiltered.length)
 
-     for(let i = 0; i < dataFiltered.length; i++){ 
-         document.getElementById('filterImg'+ i).src = dataFiltered[i][0];
-         document.getElementById('title'+ i).innerHTML = dataFiltered[i][1];
-         document.getElementById('year'+ i).innerHTML = dataFiltered[i][2];
-         document.getElementById('score'+ i).innerHTML = dataFiltered[i][3];
-         document.getElementById('filmDescription'+ i).innerHTML = dataFiltered[i][4];
-         document.getElementById('producer'+ i).innerHTML = dataFiltered[i][5];
-         document.getElementById('director'+ i).innerHTML = dataFiltered[i][6];
-         document.getElementById('people'+ i).innerHTML = dataFiltered[i][7];
+     /* ----- HTML DINAMICO*/
+     let producerHTML = ""
+     dataFiltered.forEach( theProducer=>{
+        producerHTML += generatorProducerHTML(theProducer)
+     })
+     function generatorProducerHTML(theProducer){
+         return ` <div class="posterFilter"><img src="${theProducer.poster}" id="filterImg"></div>
+         <div class="Informative">
+           <p><b>Title:  </b><span id="title">${theProducer.title}</span></p>
+           <p><b>Year: </b><span id="year">${theProducer.year}</span></p>
+           <p><b>Score: </b><span id="score">${theProducer.score}</span></p>
+           <p><b>Descripcion: </b><span id='filmDescription'>${theProducer.description}</span></p>
+           <p><b>Producer: </b><span id="producer">${theProducer.producer}</span></p>
+           <p><b>Director: </b><span id="director">${theProducer.director}</span></p>
+           <p><b>Movie characters:  </b><span id="people">${theProducer.characters}</span></p>
+         </div>`
      }
+
+     document.getElementById("informativeFile").innerHTML = producerHTML
      
-    })
+    })// --- Final producer
     
 
+ 
     
 
 
