@@ -8,26 +8,28 @@
   <body>
     <header>
       <div id="Banner">Studios Ghibli</div>
-      <div class="dropdown">
-        <button>Director</button>
-        <ul>
-          <li><input class="character" name="tried" type="submit" value="Hayao Miyazaki"></li>
-          <li><input class="character" name="tried" type="submit" value="Isao Takahata"></li>
-          <li><input class="character" name="tried" type="submit" value="Yoshifumi Kondō"></li>
-          <li><input class="character" name="tried" type="submit" value="Hiroyuki Morita"></li>
-          <li><input class="character" name="tried" type="submit" value="Gorō Miyazaki"></li>
-          <li><input class="character" name="tried" type="submit" value="Hiromasa Yonebayashi"></li>
-        </ul> 
-        <button>Productor</button>
-        <ul>
-          <li><input class="character" name="Producer" type="submit" value="Toru Hara"></li>
-          <li><input class="character" name="people" type="submit" value="Therru"></li>
-        </ul>
-      </div>
     </header>
     <main>
+      <div class="carousel"></div>
+      <div class="search-bar">   
+        <p><b>Buscar por:</b></p>    
+          <select class="selInput" id="selectDirector">
+            <option value="" selected disabled>Directores</option>
+          </select>
+          <select class="selInput" id="selectProducer">
+            <option value="" selected disabled>Productores</option>
+          </select>
+          <select class="selInput" id="selectCharacter">
+            <option value="" selected disabled>Personajes</option>
+          </select>
+          <select class="selInput" id="selectLocation">
+            <option value="" selected disabled>Locaciones</option>
+          </select>
+          <select class="selInput" id="selectVehicles">
+            <option value="" selected disabled>Vehiculos</option>
+          </select>
+       </div>
       <div id="FirstPage">
-        <div class="carousel"></div>
         <h1 id="title">Todas las peliculas</h1>
         <div id="movies">
           <div class="poster"><img src="" alt="" id="film0"></div>
@@ -53,21 +55,91 @@
         </div> <!--Final movies-->
       </div><!--Fist Page-->
       <div id="SecoundPage">
-        <div class="carousel"></div>
         <h1 id="Name"> </h1>
-        <div class="informativeFile">
+        
+        <template id="informativeFile">
+          <img src="" id="filterImg">
+            <p><b>Title:  </b><span class="title"></span></p>
+            <p><b>Year: </b><span id="year"></span></p>
+            <p><b>Score: </b><span id="score"></span></p>
+            <p><b>Descripcion: </b><span id='filmDescription'></span></p>
+            <p><b>Producer: </b><span id="producer"></span></p>
+            <p><b>Director: </b><span id="director"></span></p>
+            <p><b>Movie characters:  </b><span id="people"></span></p>
+          
+        </template><!--Ficha informativa-->
+       <!-- <div class="informativeFile">
           <div class="posterFilter"><img src="" id="filterImg1"></div>
           <div class="Informative">
-            <p id="title1"></p>
-            <p id="year1"></p>
-            <p id="score1"></p>
-            <p id='filmDescription1'></p>
-            <p id="producer1"></p>
-            <p id="director1"></p>
-            <p id="people1"></p>
+            <p><b>Title:  </b><span id="title1"></span></p>
+            <p><b>Year: </b><span id="year1"></span></p>
+            <p><b>Score: </b><span id="score1"></span></p>
+            <p><b>Descripcion: </b><span id='filmDescription1'></span></p>
+            <p><b>Producer: </b><span id="producer1"></span></p>
+            <p><b>Director: </b><span id="director1"></span></p>
+            <p><b>Movie characters:  </b><span id="people1"></span></p>
           </div>
-          
         </div>
+        <div class="informativeFile">
+          <div class="posterFilter"><img src="" id="filterImg2"></div>
+          <div class="Informative">
+            <p><b>Title:  </b><span id="title2"></span></p>
+            <p><b>Year: </b><span id="year2"></span></p>
+            <p><b>Score: </b><span id="score2"></span></p>
+            <p><b>Descripcion: </b><span id='filmDescription2'></span></p>
+            <p><b>Producer: </b><span id="producer2"></span></p>
+            <p><b>Director: </b><span id="director2"></span></p>
+            <p><b>Movie characters:  </b><span id="people2"></span></p>
+          </div>
+        </div>
+        <div class="informativeFile">
+          <div class="posterFilter"><img src="" id="filterImg3"></div>
+          <div class="Informative">
+            <p><b>Title:  </b><span id="title3"></span></p>
+            <p><b>Year: </b><span id="year3"></span></p>
+            <p><b>Score: </b><span id="score3"></span></p>
+            <p><b>Descripcion: </b><span id='filmDescription3'></span></p>
+            <p><b>Producer: </b><span id="producer3"></span></p>
+            <p><b>Director: </b><span id="director3"></span></p>
+            <p><b>Movie characters:  </b><span id="people3"></span></p>
+          </div>
+        </div>
+        <div class="informativeFile">
+          <div class="posterFilter"><img src="" id="filterImg4"></div>
+          <div class="Informative">
+            <p><b>Title:  </b><span id="title4"></span></p>
+            <p><b>Year: </b><span id="year4"></span></p>
+            <p><b>Score: </b><span id="score4"></span></p>
+            <p><b>Descripcion: </b><span id='filmDescription4'></span></p>
+            <p><b>Producer: </b><span id="producer4"></span></p>
+            <p><b>Director: </b><span id="director4"></span></p>
+            <p><b>Movie characters:  </b><span id="people4"></span></p>
+          </div>
+        </div>
+        <div class="informativeFile">
+          <div class="posterFilter"><img src="" id="filterImg5"></div>
+          <div class="Informative">
+            <p><b>Title:  </b><span id="title5"></span></p>
+            <p><b>Year: </b><span id="year5"></span></p>
+            <p><b>Score: </b><span id="score5"></span></p>
+            <p><b>Descripcion: </b><span id='filmDescription5'></span></p>
+            <p><b>Producer: </b><span id="producer5"></span></p>
+            <p><b>Director: </b><span id="director5"></span></p>
+            <p><b>Movie characters:  </b><span id="people5"></span></p>
+          </div>
+        </div>
+        <div class="informativeFile">
+          <div class="posterFilter"><img src="" id="filterImg6"></div>
+          <div class="Informative">
+            <p><b>Title:  </b><span id="title6"></span></p>
+            <p><b>Year: </b><span id="year6"></span></p>
+            <p><b>Score: </b><span id="score6"></span></p>
+            <p><b>Descripcion: </b><span id='filmDescription6'></span></p>
+            <p><b>Producer: </b><span id="producer6"></span></p>
+            <p><b>Director: </b><span id="director6"></span></p>
+            <p><b>Movie characters:  </b><span id="people6"></span></p>
+          </div>
+        </div>-->
       </div>
     </main>
     <footer>
