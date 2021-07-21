@@ -116,3 +116,20 @@ footer{
     justify-content: space-between;
 }
 
+
+
+
+#SecoundPage{
+    padding: 4rem 2rem;
+    margin-bottom: 1rem;
+    
+}
+
+#caption{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 2rem;
+}
+
+
+
