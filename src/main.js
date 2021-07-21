@@ -36,7 +36,7 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
      let dataInput = selectDir.value;
      let dataFiltered =['']
      dataFiltered = directorFilter(dataInput,data.films);  
-     const caption = 'a dirigido '+ dataFiltered.length + ' peliculas';
+     const caption = 'Ha dirigido '+ dataFiltered.length + ' peliculas';
     
      document.getElementById('Name').innerHTML = dataInput;
      document.getElementById('caption').innerHTML = caption;
@@ -48,16 +48,21 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
          directorHTML += generatorDirectorHTML(oneDirector)
      })
      function generatorDirectorHTML(oneDirector){
-         return ` <div class="posterFilter"><img src="${oneDirector.poster}" id="filterImg"></div>
-         <div class="Informative">
-           <p><b>Title:  </b><span id="title">${oneDirector.title}</span></p>
-           <p><b>Year: </b><span id="year">${oneDirector.year}</span></p>
-           <p><b>Score: </b><span id="score">${oneDirector.score}</span></p>
-           <p><b>Descripcion: </b><span id='filmDescription'>${oneDirector.description}</span></p>
-           <p><b>Producer: </b><span id="producer">${oneDirector.producer}</span></p>
-           <p><b>Director: </b><span id="director">${oneDirector.director}</span></p>
-           <p><b>Movie characters:  </b><span id="people">${oneDirector.characters}</span></p>
-         </div>`
+         return ` 
+         <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
+         background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
+            <div class="posterFilter" style="padding: 1rem;">
+                <img src="${oneDirector.poster}" id="filterImg"></div>
+            <div class="Informative">
+            <p><b>Title:  </b><span id="title">${oneDirector.title}</span></p>
+            <p><b>Year: </b><span id="year">${oneDirector.year}</span></p>
+            <p><b>Score: </b><span id="score">${oneDirector.score}</span></p>
+            <p><b>Descripcion: </b><span id='filmDescription'>${oneDirector.description}</span></p>
+            <p><b>Producer: </b><span id="producer">${oneDirector.producer}</span></p>
+            <p><b>Director: </b><span id="director">${oneDirector.director}</span></p>
+            <p><b>Movie characters:  </b><span id="people">${oneDirector.characters}</span></p>
+            </div>
+          </div>  `
      }
 
      document.getElementById("informativeFile").innerHTML = directorHTML
