@@ -20,12 +20,6 @@ export const getUniqueValues = (array) => (
 //obtener valores unicos en select input
 //
 export const directorFilter = (dataInput,films) => {
-  /*let filmspeople = [];
-  for(let i=0 ; i<films.length ; i++){
-    if(films[i].director === dataInput){
-      filmspeople.push(films[i].title)
-    }
-  }*/
     const directorFilms = films.filter(function(films){
        return films.director === dataInput;})
        .map(function(films){

@@ -65,12 +65,27 @@ header{
 }
 
 .selInput {
-    border:0;
+    border:0px;
     background:none;
     -webkit-appearance: none;
+    border-style: none;
+}
+.selInput:hover{
+    background-color: #EBFFA5;
 }
 
-    
+/*.selInput:hover*/
+option{
+    background-color: #EBFFA5;
+    padding: 1em;
+}
+.search-bar select{
+   padding: 15px !important;
+   outline: 0;
+   transition: all 0.25s ease;
+}
+
+
 @media only screen and (min-width: 768px) {
 #carousel{
     width: 100% !important;
@@ -95,12 +110,9 @@ header{
 #movies{
     display: flex;
     justify-content: space-evenly;
-    align-content: space-between;
+    align-content: stretch;
     flex-flow: row wrap !important; 
-  
 }
-
- 
 
 .poster {
     flex-basis: 21%; /* explanation below */
@@ -111,8 +123,4 @@ footer{
     background: #C9D991;
 }
 
-#movie{
-    display: flex;
-    justify-content: space-between;
-}
 
