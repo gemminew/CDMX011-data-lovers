@@ -88,7 +88,7 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
      let dataInput = selectProd.value;
      let dataFiltered =['']
      dataFiltered = producerFilter(dataInput,data.films);  
-     const caption = 'a producido '+ dataFiltered.length + ' peliculas';
+     const caption = 'Ha producido '+ dataFiltered.length + ' peliculas';
 
      document.getElementById('Name').innerHTML = dataInput;
      document.getElementById('caption').innerHTML = caption;
@@ -99,8 +99,12 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
      dataFiltered.forEach( theProducer=>{
         producerHTML += generatorProducerHTML(theProducer)
      })
+     
      function generatorProducerHTML(theProducer){
-         return ` <div class="posterFilter"><img src="${theProducer.poster}" id="filterImg"></div>
+         return ` 
+         <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
+         background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
+         <div class="posterFilter" style="padding: 1rem;"><img src="${theProducer.poster}" id="filterImg"></div>
          <div class="Informative">
            <p><b>Title:  </b><span id="title">${theProducer.title}</span></p>
            <p><b>Year: </b><span id="year">${theProducer.year}</span></p>
@@ -109,6 +113,7 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
            <p><b>Producer: </b><span id="producer">${theProducer.producer}</span></p>
            <p><b>Director: </b><span id="director">${theProducer.director}</span></p>
            <p><b>Movie characters:  </b><span id="people">${theProducer.characters}</span></p>
+         </div>
          </div>`
      }
 
