@@ -172,11 +172,36 @@ selectCharacter.addEventListener('change',() =>{
     document.getElementById('FirstPage').style.display = 'none';
     let dataInput = selectCharacter.value
     let dataFiltered = [''];
-    dataFiltered = characterFilter(dataInput, data.films);
+    dataFiltered = characterFilter(dataInput, data.films); //argument
 
     console.log(dataFiltered)
 
-})
+    let characterHTML = ""
+    dataFiltered.forEach( theCharacter=>{
+       characterHTML += generatorCharacterHTML(theCharacter)
+    })
+    function generatorCharacterHTML(theCharacter){
+        return ` 
+        <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
+        background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
+        <div class="posterFilter" style="padding: 1rem;"><img src="${theCharacter.img}" id="filterImg"></div>
+        <div class="Informative">
+          <p><b>Title:  </b><span id="title">${theCharacter.title}</span></p>
+          <p><b>Year: </b><span id="year">${theCharacter.year}</span></p>
+          <p><b>Score: </b><span id="score">${theCharacter.score}</span></p>
+          <p><b>Descripcion: </b><span id='filmDescription'>${theCharacter.description}</span></p>
+          <p><b>Producer: </b><span id="producer">${theCharacter.producer}</span></p>
+          <p><b>Director: </b><span id="director">${theCharacter.director}</span></p>
+          <p><b>Movie characters:  </b><span id="people">${theCharacter.characters}</span></p>
+        </div> 
+        </div>`
+
+    }
+
+    document.getElementById("informativeFile").innerHTML =  characterHTML
+    
+   })
+
     
 
 
