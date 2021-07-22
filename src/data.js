@@ -16,12 +16,7 @@ export const getUniqueValues = (array) => (
       arr.indexOf(currentValue) === index
   ))
 )
-//--------- Ets es una prueba para ver que poner debajo INTENTO1
-export const attribute = (option) =>{
-  if (option == 'scoreMinToMax' || option== 'scoreMaxToMin'){
-    return 'rt_score'
-  }
-}
+
 //-----------------------Parte del order alfabeticamente, year and score
 export const orderBy = (films, option) =>{
   if( option == 'AZ'){
