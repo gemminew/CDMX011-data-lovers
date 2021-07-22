@@ -119,10 +119,10 @@ option{
     transition: all 0.25s ease;
     margin: 30px;
 }
+#sortinGhibli:hover{
+	background: rgba(217, 156, 184, 0.5);
+}
 figure {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
