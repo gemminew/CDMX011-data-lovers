@@ -23,12 +23,26 @@ sortAndSelect.addEventListener('change', () =>{
     posterOrder.forEach(objeto =>{
         posterOrderHTML+=generatorPosterHTML(objeto)
     })
-    // if(sortAndSelect.value == 'AZ' || sortAndSelect.value == 'ZA'){ NO ME DEJA METER LA FUNCION EN EL IF  :(
+    // if(sortAndSelect.value == 'AZ' || sortAndSelect.value == 'ZA'){ //NO ME DEJA METER LA FUNCION EN EL IF  :(
     function generatorPosterHTML(objeto){
+        if(sortAndSelect.value == 'AZ' || sortAndSelect.value == 'ZA'){
         return `<figure class="poster">
-        <figcaption> socre: ${objeto.rt_score}</figcaption>
+        <figcaption> ${objeto.title}</figcaption>
         <img src="${objeto.poster}" >
         </figure>`
+        }else
+        if (sortAndSelect.value == 'scoreMinToMax' || sortAndSelect.value == 'scoreMaxToMin'){
+            return `<figure class="poster">
+            <figcaption>Score: ${objeto.rt_score}</figcaption>
+            <img src="${objeto.poster}" >
+            </figure>`
+        }else
+        if (sortAndSelect.value == 'dateMinToMax' || sortAndSelect.value == 'dateMaxToMin'){
+            return `<figure class="poster">
+            <figcaption>Date: ${objeto.release_date}</figcaption>
+            <img src="${objeto.poster}" >
+            </figure>`
+        }
     }
     document.getElementById("movies").innerHTML = posterOrderHTML
 })
