@@ -117,6 +117,9 @@ option{
 .poster {
     flex-basis: 21%; /* explanation below */
 }
+.poster:hover{
+    background-transition: swep to top;
+}
 footer{
     max-width: -webkit-fill-available; 
     height: 60px; 
