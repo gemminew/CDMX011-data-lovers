@@ -11,7 +11,7 @@ export const posters = (data) => {
     return DirPoster;
 };
 
-export const getUniqueValues = (array) => (
+export const getUniqueValues = (array) => ( //como funciona?
   array.filter((currentValue, index, arr) => (
       arr.indexOf(currentValue) === index
   ))

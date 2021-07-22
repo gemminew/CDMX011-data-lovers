@@ -153,7 +153,27 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
     })// --- Final producer
     
 
- 
+ //SELECCIONAR PEOPLE directo DESDE la DATA // ------------------------------Seccion CHARACTER
+let selectCharacter = document.getElementById('selectCharacter');
+let characterOptions = data.films.map(function(film) {return film.title})
+characterOptions  = getUniqueValues(characterOptions ) //evita duplicacion de elementos
+    console.log(characterOptions );
+
+for(let i=0; i < characterOptions.length; i++){//Porque me lo pone arriba 
+    let titleName = characterOptions[i];
+    let characterElemnt = document.createElement('option')
+
+    characterElemnt.textContent =titleName //¿Por que ?
+    characterElemnt.value = titleName 
+    selectCharacter.appendChild(characterElemnt)
+}
+
+selectCharacter.addEventListener('change',() =>{
+    document.getElementById('FirstPage').style.display = 'none';
+    let dataInput = selectCharacter.value
+    console.log(dataInput)
+
+})
     
 
 
