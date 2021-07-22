@@ -100,7 +100,10 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
         producerHTML += generatorProducerHTML(theProducer)
      })
      function generatorProducerHTML(theProducer){
-         return ` <div class="posterFilter"><img src="${theProducer.poster}" id="filterImg"></div>
+         return ` 
+         <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
+         background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
+         <div class="posterFilter" style="padding: 1rem;"><img src="${theProducer.poster}" id="filterImg"></div>
          <div class="Informative">
            <p><b>Title:  </b><span id="title">${theProducer.title}</span></p>
            <p><b>Year: </b><span id="year">${theProducer.year}</span></p>
@@ -109,7 +112,9 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
            <p><b>Producer: </b><span id="producer">${theProducer.producer}</span></p>
            <p><b>Director: </b><span id="director">${theProducer.director}</span></p>
            <p><b>Movie characters:  </b><span id="people">${theProducer.characters}</span></p>
+         </div>
          </div>`
+
      }
 
      document.getElementById("informativeFile").innerHTML = producerHTML

@@ -123,12 +123,14 @@ footer{
     background: #C9D991;
 }
 
-
+#FirstPage{
+    padding: 1rem;
+}
 
 
 
 #SecoundPage{
-    padding: 4rem 2rem;
+    padding: 2rem;
     margin-bottom: 1rem;
     
 }
@@ -139,5 +141,11 @@ footer{
     font-size: 2rem;
 }
 
+option{
+    font-family: sans-serif;
+}
 
+#Name{
+    text-align: center;
+}
 
