@@ -1,4 +1,4 @@
-import { posters, orderBy, directorFilter, producerFilter, getUniqueValues} from './data.js';
+import { posters, orderBy, directorFilter, producerFilter, characterFilter, getUniqueValues} from './data.js';
 // import data from './data/lol/lol.js';
 import data from '../data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -171,7 +171,10 @@ for(let i=0; i < characterOptions.length; i++){//Porque me lo pone arriba
 selectCharacter.addEventListener('change',() =>{
     document.getElementById('FirstPage').style.display = 'none';
     let dataInput = selectCharacter.value
-    console.log(dataInput)
+    let dataFiltered = [''];
+    dataFiltered = characterFilter(dataInput, data.films);
+
+    console.log(dataFiltered)
 
 })
     

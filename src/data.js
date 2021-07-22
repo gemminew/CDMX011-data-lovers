@@ -93,3 +93,23 @@ export const producerFilter = (dataInput,films) => {
      })
      return producers
 }
+
+export const characterFilter = (dataInput,films) => {
+
+  const characters = films.filter(function(films){
+     return films.title === dataInput;})
+     .map(function(films){
+      let numberPeople = films.people;
+      /*let imgOfPeople = [''];
+      let nameOfPeople = [''];
+      console.log('NUMERO '+numberPeople.length)
+      for(let j=0; j<numberPeople.length; j++){
+        console.log(j)
+        imgOfPeople[j]=(numberPeople[j].img);
+        nameOfPeople[j]=(numberPeople[j].name);
+      }*/
+      //let information = {imgP: numberPeople.img, nameP:numberPeople.name};
+      return numberPeople
+    })
+    return characters
+  }
