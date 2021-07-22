@@ -16,8 +16,11 @@ function generatorPosterHTML(objeto){
 
 document.getElementById("movies").innerHTML = posterHTML
 //document.getElementById("pruebaPeople").src = data.films[5].people[0].img
+let sortAndSelect = document.getElementById('sortinGhibli')
+sortAndSelect.addEventListener('change', () =>{
+    console.log(orderBy(data.films, sortAndSelect.value))
+})
 
-console.log(orderBy(data.films, 'dateMaxToMin'))
 
 
 //SELECCIONAR DIRECTOR directo DESDE la DATA // ----------------seccion de DIRECTORES
@@ -33,7 +36,6 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
         dirElement.value = directorName
         selectDir.appendChild(dirElement);
     }
-
     selectDir.addEventListener('change', () => {
      document.getElementById('FirstPage').style.display="none";
      let dataInput = selectDir.value;
