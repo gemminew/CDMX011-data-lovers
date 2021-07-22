@@ -16,44 +16,50 @@ export const getUniqueValues = (array) => (
       arr.indexOf(currentValue) === index
   ))
 )
-//Parte del order alfabeticamente, year and score
+//--------- Ets es una prueba para ver que poner debajo INTENTO1
+export const attribute = (option) =>{
+  if (option == 'scoreMinToMax' || option== 'scoreMaxToMin'){
+    return 'rt_score'
+  }
+}
+//-----------------------Parte del order alfabeticamente, year and score
 export const orderBy = (films, option) =>{
-  
   if( option == 'AZ'){
     const orderByAtoZ = films.sort((film1, film2)=>{
       return (film1.title < film2.title) ? -1 : 1;
     })
     console.log(orderByAtoZ)
+    return orderByAtoZ //Agrege esto porque no regresaba nada
   }
   else if (option == 'ZA'){
     const orderByZtoA = films.sort((film1, film2)=>{
       return (film1.title > film2.title) ? -1 : 1;
     })
-    console.log(orderByZtoA)
+    return orderByZtoA
   }
   else if (option == 'scoreMinToMax'){
     const orderByMinToMax = films.sort((film1, film2)=>{
       return film1.rt_score - film2.rt_score
     })
-    console.log(orderByMinToMax)
+    return orderByMinToMax
   }
   else if (option== 'scoreMaxToMin'){
     const orderByMaxToMin = films.sort((film1, film2)=>{
       return film2.rt_score - film1.rt_score
     })
-    console.log(orderByMaxToMin)
+    return orderByMaxToMin
   }
   else if (option == 'dateMinToMax'){
     const dateByMinToMax = films.sort((film1, film2) =>{
       return film1.release_date - film2.release_date
     })
-    console.log(dateByMinToMax)
+    return dateByMinToMax 
   }
   else if (option == 'dateMaxToMin'){
     const dateByMaxToMin = films.sort((film1, film2) =>{
       return film2.release_date - film1.release_date
     })
-    console.log(dateByMaxToMin )
+    return dateByMaxToMin
   }
 }
 

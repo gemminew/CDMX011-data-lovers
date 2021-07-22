@@ -67,7 +67,7 @@ header{
 .selInput {
     border:0px;
     background:none;
-    -webkit-appearance: none;
+    /*-webkit-appearance: none;*/
     border-style: none;
 }
 .selInput:hover{
@@ -106,6 +106,25 @@ option{
 }
 #title{
     text-align: center;
+}
+#sortinGhibli{
+    display: inline-block;
+	width: 20%;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+	font-size: 1em;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    margin: 30px;
+}
+figure {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 #movies{
     display: flex;

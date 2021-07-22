@@ -1,4 +1,4 @@
-import { posters,orderBy, directorFilter, producerFilter, getUniqueValues} from './data.js';
+import { posters, orderBy, directorFilter, producerFilter, getUniqueValues} from './data.js';
 // import data from './data/lol/lol.js';
 import data from '../data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -18,7 +18,19 @@ document.getElementById("movies").innerHTML = posterHTML
 //document.getElementById("pruebaPeople").src = data.films[5].people[0].img
 let sortAndSelect = document.getElementById('sortinGhibli')
 sortAndSelect.addEventListener('change', () =>{
-    console.log(orderBy(data.films, sortAndSelect.value))
+    let posterOrder = orderBy(data.films, sortAndSelect.value)
+    let posterOrderHTML = '' //Aqui se guarda el nuevo orden
+    posterOrder.forEach(objeto =>{
+        posterOrderHTML+=generatorPosterHTML(objeto)
+    })
+    // if(sortAndSelect.value == 'AZ' || sortAndSelect.value == 'ZA'){ NO ME DEJA METER LA FUNCION EN EL IF  :(
+    function generatorPosterHTML(objeto){
+        return `<figure class="poster">
+        <figcaption> socre: ${objeto.rt_score}</figcaption>
+        <img src="${objeto.poster}" >
+        </figure>`
+    }
+    document.getElementById("movies").innerHTML = posterOrderHTML
 })
 
 
