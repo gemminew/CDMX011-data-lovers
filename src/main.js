@@ -1,4 +1,4 @@
-import { posters, directorFilter, producerFilter, getUniqueValues} from './data.js';
+import { posters,orderBy, directorFilter, producerFilter, getUniqueValues} from './data.js';
 // import data from './data/lol/lol.js';
 import data from '../data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -15,6 +15,9 @@ function generatorPosterHTML(objeto){
 }
 
 document.getElementById("movies").innerHTML = posterHTML
+//document.getElementById("pruebaPeople").src = data.films[5].people[0].img
+
+console.log(orderBy(data.films, 'dateMaxToMin'))
 
 
 //SELECCIONAR DIRECTOR directo DESDE la DATA // ----------------seccion de DIRECTORES
