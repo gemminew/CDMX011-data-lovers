@@ -185,7 +185,7 @@ option{
     margin: auto;
     align-content: center;
   }
-#character figure img {
+#character figure img { /*hace que la figure se ajuste al tamaño que tiene la imagen*/
     width: 100%;
     display: block;
    
@@ -197,5 +197,5 @@ option{
     font-style: italic;
     padding: 2px;
     text-align: center;
-    font-size: medium;
+    font-size: large; /*no se porque no me quiere cambiar el tama;o de la letra*/
   }
