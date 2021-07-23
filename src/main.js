@@ -64,6 +64,8 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
     }
     selectDir.addEventListener('change', () => {
      document.getElementById('FirstPage').style.display="none";
+     document.getElementById('informativeFile').style.display = 'block';
+     document.getElementById('character').style.display = 'none';
      let dataInput = selectDir.value;
      let dataFiltered =['']
      dataFiltered = directorFilter(dataInput,data.films);  
@@ -116,6 +118,8 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
 
     selectProd.addEventListener('change', () => {
      document.getElementById('FirstPage').style.display="none";
+     document.getElementById('informativeFile').style.display = 'block';
+     document.getElementById('character').style.display = 'none';
      let dataInput = selectProd.value;
      let dataFiltered =['']
      dataFiltered = producerFilter(dataInput,data.films);  
@@ -171,6 +175,7 @@ for(let i=0; i < characterOptions.length; i++){//Porque me lo pone arriba
 selectCharacter.addEventListener('change',() =>{
     document.getElementById('FirstPage').style.display = 'none';
     document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
+    document.getElementById('character').style.display = 'flex';
     let dataInput = selectCharacter.value
     let dataFiltered = [''];
     dataFiltered = characterFilter(dataInput, data.films); //argument
