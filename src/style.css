@@ -55,6 +55,9 @@ header{
     padding: .2rem;
     height: 72px; 
 }
+.search-bar select{
+    max-width: 150px;
+}
 
 .search-bar{
     display: flex;
@@ -136,7 +139,7 @@ figure {
     flex-basis: 21%; /* explanation below */
 }
 .poster:hover{
-    background-transition: swep to top;
+    /*background-transition: swep to top;*/
 }
 footer{
     max-width: -webkit-fill-available; 
@@ -159,7 +162,7 @@ footer{
 #caption{
     text-align: center;
     font-family: sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 option{
@@ -168,5 +171,31 @@ option{
 
 #Name{
     text-align: center;
+    font-size: 2rem;
+}
+#character{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: stretch;
+    flex-flow: row wrap !important;
+}
+#character figure {
+    border: 1px #cccccc solid;
+    padding: 4px;
+    margin: auto;
+    align-content: center;
+  }
+#character figure img { /*hace que la figure se ajuste al tamaño que tiene la imagen*/
+    width: 100%;
+    display: block;
+   
 }
 
+#character figcaption {
+    background-color: rgba(191, 128, 122, 0.5);
+    color: #000;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+    font-size: large; /*no se porque no me quiere cambiar el tama;o de la letra*/
+  }
