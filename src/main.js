@@ -189,13 +189,45 @@ selectCharacter.addEventListener('change',() =>{
        characterHTML += generatorCharacterHTML(theCharacter)
     })
     function generatorCharacterHTML(theCharacter){
-        return `<figure class="poster">
+        return `<script> </script>
+        <button class="btnCharacter" value='${theCharacter.img}, ${theCharacter.name}, ${theCharacter.age}, ${theCharacter.specie},${theCharacter.gender},${theCharacter.eye_color},${theCharacter.hair_color}'>
+        <figure class="poster">
         <img src="${theCharacter.img}" id="characterImg" >
         <figcaption>${theCharacter.name}</figcaption>
-        </figure>`
+        </figure></button>`
 
     }
     document.getElementById("character").innerHTML =  characterHTML
+    const btnCha = document.getElementsByClassName("btnCharacter")
+
+    for(let i=0; i <btnCha.length; i++){
+        btnCha[i].addEventListener('click', (evt)=>{
+            evt.preventDefault;
+            let Character =  btnCha[i].value;
+            let matrizCha = ['']
+            let arrayCha = Character.split(",")
+            matrizCha[0] =arrayCha
+            console.log(matrizCha )
+            
+            let html = ''
+            matrizCha.forEach( theCharacter=>{
+                html += generatorHTMLcharacter(theCharacter)
+             })
+            function generatorHTMLcharacter(theCharacter){
+                return` <img src="${theCharacter[0]}">
+                <div><p><b> ${theCharacter[1]}</b></p></br>
+                <p><b>Edad: </b>${theCharacter[2]}</p></br>
+                <p><b>Especie: </b>${theCharacter[3]}</p></br>
+                <p><b>Genero: </b>${theCharacter[4]}</p></br>
+                <p><b>Color de ojos: </b>${theCharacter[5]}</p></br>
+                <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
+                </div>`
+            }
+            document.getElementById("character").innerHTML = html
+        })
+    }
+    
+    
     
    })
 
