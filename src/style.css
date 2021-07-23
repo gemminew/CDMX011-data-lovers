@@ -34,6 +34,10 @@ header{
         width: 100% !important;
         height: auto !important;
     }
+
+    .poster{
+        flex-direction: column wrap !important;
+    }
 }   
 #carousel{
     max-width: -webkit-fill-available; /*1345px*/
@@ -137,7 +141,13 @@ figure {
 
 .poster {
     flex-basis: 21%; /* explanation below */
+    margin-bottom: 1rem;
 }
+
+.poster img{
+    width: 100%;
+}
+
 .poster:hover{
     /*background-transition: swep to top;*/
 }
@@ -151,6 +161,14 @@ footer{
     padding: 1rem;
 }
 
+.posterFilter{
+    display: flex;
+    padding: 1rem;
+}
+
+.Informative{
+    padding: 1.5rem 2.5rem;
+}
 
 
 #SecoundPage{
