@@ -160,7 +160,10 @@ footer{
 #FirstPage{
     padding: 1rem;
 }
-
+#movies figcaption{
+    font-size: x-large;
+    background: rgba(191, 128, 122, 0.5);
+}
 .posterFilter{
     display: flex;
     padding: 1rem;
@@ -174,6 +177,7 @@ footer{
 #SecoundPage{
     padding: 2rem;
     margin-bottom: 1rem;
+    padding-top: 0rem;
     
 }
 
@@ -192,6 +196,14 @@ option{
     text-align: center;
     font-size: 2rem;
 }
+#informativeFile{
+    padding-left: 60px;
+    padding-right: 60px;
+}
+hr{
+    color: #000;
+}
+
 #character{
     display: flex;
     justify-content: space-evenly;
@@ -199,17 +211,23 @@ option{
     flex-flow: row wrap !important;
 }
 #character figure {
-    border: 1px #cccccc solid;
+    border:none;
     padding: 4px;
     margin: auto;
     align-content: center;
+    border-radius: 20px;
   }
 #character figure img { /*hace que la figure se ajuste al tamaño que tiene la imagen*/
     width: 100%;
     display: block;
-   
+    border-radius: 30px;
 }
-
+#character figure img:hover{
+    transform: scale(1.1);
+    border: solid 5px;
+    border-color: rgba(191, 128, 122, 0.5);
+    animation: bounce 1s;
+}
 #character figcaption {
     background-color: rgba(191, 128, 122, 0.5);
     color: #000;
@@ -217,4 +235,33 @@ option{
     padding: 2px;
     text-align: center;
     font-size: large; /*no se porque no me quiere cambiar el tama;o de la letra*/
+    border-radius: 30px;
   }
+#infoCharacter{
+    padding: 10px;
+    margin-right: 200px;
+    border: solid;
+    border-radius: 30px;
+}
+#imgCharacter{
+    margin-left: 200px;
+    border-radius: 30px;
+    
+}
+button{
+    border: none;
+    flex-direction: column wrap !important;
+}
+#locations{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-basis: 50%;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+.informativeLocation{
+    padding: 10px;
+}
+
+/*flex-wrap: wrap;*/
