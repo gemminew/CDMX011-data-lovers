@@ -1,7 +1,6 @@
-import { posters, orderBy, directorFilter, producerFilter, characterFilter, vehicleFilter, getUniqueValues} from './data.js';
-// import data from './data/lol/lol.js';
+
+import { posters, orderBy, directorFilter, producerFilter, characterFilter, getUniqueValues, titleLocation,locationFilter, vehicleFilter} from './data.js';
 import data from '../data/ghibli/ghibli.js';
-// import data from './data/rickandmorty/rickandmorty.js';
 
 console.log(data)
 let Adress = posters(data);
@@ -48,7 +47,6 @@ sortAndSelect.addEventListener('change', () =>{
 })
 
 
-
 //SELECCIONAR DIRECTOR directo DESDE la DATA // ----------------seccion de DIRECTORES
 let selectDir = document.getElementById('selectDirector');
 let directorOptions = data.films.map(function(film) {return film.director})
@@ -66,6 +64,8 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
      document.getElementById('FirstPage').style.display="none";
      document.getElementById('informativeFile').style.display = 'block';
      document.getElementById('character').style.display = 'none';
+     document.getElementById('locations').style.display = 'none';
+     
      let dataInput = selectDir.value;
      let dataFiltered =['']
      dataFiltered = directorFilter(dataInput,data.films);  
@@ -87,7 +87,7 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
             <div class="posterFilter" style="padding: 1rem;">
                 <img src="${oneDirector.poster}" id="filterImg"></div>
             <div class="Informative">
-            <p><b>Title:  </b><span id="title">${oneDirector.title}</span></p>
+            <h1>${oneDirector.title}</h1><hr color="#000">
             <p><b>Year: </b><span id="year">${oneDirector.year}</span></p>
             <p><b>Score: </b><span id="score">${oneDirector.score}</span></p>
             <p><b>Descripcion: </b><span id='filmDescription'>${oneDirector.description}</span></p>
@@ -120,6 +120,7 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
      document.getElementById('FirstPage').style.display="none";
      document.getElementById('informativeFile').style.display = 'block';
      document.getElementById('character').style.display = 'none';
+     document.getElementById('locations').style.display = 'none';
      let dataInput = selectProd.value;
      let dataFiltered =['']
      dataFiltered = producerFilter(dataInput,data.films);  
@@ -140,7 +141,7 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
          background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
          <div class="posterFilter" style="padding: 1rem;"><img src="${theProducer.poster}" id="filterImg"></div>
          <div class="Informative">
-           <p><b>Title:  </b><span id="title">${theProducer.title}</span></p>
+           <h1>${theProducer.title}</h1><hr color="#000">
            <p><b>Year: </b><span id="year">${theProducer.year}</span></p>
            <p><b>Score: </b><span id="score">${theProducer.score}</span></p>
            <p><b>Descripcion: </b><span id='filmDescription'>${theProducer.description}</span></p>
@@ -160,7 +161,7 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
  //SELECCIONAR PEOPLE directo DESDE la DATA // ------------------------------Seccion CHARACTER
 let selectCharacter = document.getElementById('selectCharacter');
 let characterOptions = data.films.map(function(film) {return film.title})
-characterOptions  = getUniqueValues(characterOptions ) //evita duplicacion de elementos
+//characterOptions  = getUniqueValues(characterOptions ) //evita duplicacion de elementos
     console.log(characterOptions );
 
 for(let i=0; i < characterOptions.length; i++){//Porque me lo pone arriba 
@@ -176,6 +177,8 @@ selectCharacter.addEventListener('change',() =>{
     document.getElementById('FirstPage').style.display = 'none';
     document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
     document.getElementById('character').style.display = 'flex';
+    document.getElementById('locations').style.display = 'none';
+    
     let dataInput = selectCharacter.value
     let dataFiltered = [''];
     dataFiltered = characterFilter(dataInput, data.films); //argument
@@ -189,7 +192,7 @@ selectCharacter.addEventListener('change',() =>{
        characterHTML += generatorCharacterHTML(theCharacter)
     })
     function generatorCharacterHTML(theCharacter){
-        return `<script> </script>
+        return `
         <button class="btnCharacter" value='${theCharacter.img}, ${theCharacter.name}, ${theCharacter.age}, ${theCharacter.specie},${theCharacter.gender},${theCharacter.eye_color},${theCharacter.hair_color}'>
         <figure class="poster">
         <img src="${theCharacter.img}" id="characterImg" >
@@ -201,7 +204,7 @@ selectCharacter.addEventListener('change',() =>{
     const btnCha = document.getElementsByClassName("btnCharacter")
 
     for(let i=0; i <btnCha.length; i++){
-        btnCha[i].addEventListener('click', (evt)=>{
+        btnCha[i].addEventListener('click', (evt)=>{ // ---- Es un arreglo porque esta en event de class y varios elementos cuentan con esta clase
             evt.preventDefault;
             let Character =  btnCha[i].value;
             let matrizCha = ['']
@@ -214,36 +217,72 @@ selectCharacter.addEventListener('change',() =>{
                 html += generatorHTMLcharacter(theCharacter)
              })
             function generatorHTMLcharacter(theCharacter){
-                return` 
-                <div style="display: flex;
-                padding: 2rem;
-                background-color: bisque;
-                border-radius: 1.5rem;">
-                    <div style="display: flex; width: 50%;">
-                    <img src="${theCharacter[0]} style="--webkit-fill-available;"></div>
-                        <div style="
-                        flex-flow: column nowrap;
-                        padding-top: 4rem;
-                        padding-left: 1.5rem;
-                        font-size: 24px;">
-                        <p style="font-size: 50px;"><b> ${theCharacter[1]}</b></p>
-                        <p><b>Edad: </b>${theCharacter[2]}</p>
-                        <p><b>Especie: </b>${theCharacter[3]}</p>
-                        <p><b>Genero: </b>${theCharacter[4]}</p>
-                        <p><b>Color de ojos: </b>${theCharacter[5]}</p>
-                        <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
-                        </div>
-                </div>`
+
+                return` <img src="${theCharacter[0]}" id="imgCharacter">
+                <div id="infoCharacter"><h1> ${theCharacter[1]}</h1>
+                <p><b>Edad: </b>${theCharacter[2]}</p>
+                <p><b>Especie: </b>${theCharacter[3]}</p>
+                <p><b>Genero: </b>${theCharacter[4]}</p>
+                <p><b>Color de ojos: </b>${theCharacter[5]}</p>
+                <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
+
             }            
             document.getElementById("character").style.display="none";
             document.getElementById("characterFile").innerHTML = html;
 
         })
     }
-    
-    
-    
-   })
+   })// final de Character
+///// -----------------------------------------------------------------------seccion Location
+let selectLocation = document.getElementById('selectLocation');
+   let locationOptions = titleLocation(data.films)
+   console.log(locationOptions)
+   for(let i=0; i < locationOptions.length; i++){//Porque me lo pone arriba 
+    let Location = document.createElement('option')
+
+
+    Location.textContent =locationOptions[i] //¿Por que ?
+    Location.value = locationOptions[i]
+    selectLocation.appendChild(Location)
+}
+
+selectLocation.addEventListener('change', ()=> {
+    document.getElementById('FirstPage').style.display = 'none';
+    document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
+    document.getElementById('character').style.display = 'none';
+    document.getElementById('locations').style.display = 'flex';
+    let dataInput = selectLocation.value
+    let dataFiltered = [''];
+    dataFiltered = locationFilter(dataInput, data.films); //argument
+    console.log(dataFiltered)
+    const caption = 'cuenta con '+ dataFiltered.length + ' locaciones.';
+    document.getElementById('Name').innerHTML = dataInput;
+    document.getElementById('caption').innerHTML = caption;
+
+    /* ----- HTML DINAMICO*/
+    let locationHTML = ""
+    dataFiltered.forEach( thelocation=>{
+        locationHTML += generatorLocationHTML(thelocation)
+    })
+    function generatorLocationHTML(thelocation){
+        return ` 
+        <div class="flexRow" style="display: flex; font-family: sans-serif; 
+        background-color: #BB9EA0; border-radius: 1rem; margin-bottom: 10px; ">
+        <div class="posterFilter" style="padding: 1rem;"><img src="${thelocation.img}" id="filterImg"></div>
+        <div class="informativeLocation">
+          <h1><b></b><span id="title">${thelocation.name}</span></h1>
+          <p><b>Clima: </b><span id="year">${thelocation.climate}</span></p>
+          <p><b>Terreno: </b><span id="score">${thelocation.terrain}</span></p>
+          <p><b>Superficie del agua: </b><span id='filmDescription'>${thelocation.surface_water}</span></p>
+          <p><b>Residentes: </b><span id="producer">${thelocation.residents[0]}</span></p>
+        </div>
+        </div>`
+
+    }
+
+    document.getElementById("locations").innerHTML = locationHTML
+})
+
 
  let selectVehicle= document.getElementById('selectVehicle');
  let vehicleOptions = data.films.filter((film) => film.vehicles.length > 0)
@@ -258,6 +297,7 @@ selectCharacter.addEventListener('change',() =>{
            selectVehicle.appendChild(vehicleElement);
        }
    
+
 
  selectVehicle.addEventListener('change', () => {
     document.getElementById('FirstPage').style.display = 'none';

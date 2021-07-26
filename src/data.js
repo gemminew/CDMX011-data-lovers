@@ -100,10 +100,40 @@ export const characterFilter = (dataInput,films) => {
     .filter( function(banana){ return banana.title === dataInput;} ) 
     .map(function(banana){
       let listOfPeople = banana.people;
+      console.log('characters:')
+      console.log(listOfPeople.length)
       return listOfPeople
     })[0] // 
     return characters
   }
+
+
+export const titleLocation = (films) =>{
+   /*const titles = films.map(function(film){
+    let location = film.locations
+    if( location.length != 0){
+      return film.title
+    }
+  })*/
+  let titles = ['']
+  let j=0
+  for(let i=0; i< films.length ;i++){
+    let location = films[i].locations
+    if( location.length != 0){
+      titles[j]= films[i].title
+      j++
+    }else{continue}
+  }
+  return titles
+}
+
+export const locationFilter = (dataInput,films) =>{
+  const locations = films.filter(function(film){return film.title === dataInput})
+  .map(function(film){
+    return film.locations
+  })[0]
+  return locations
+}
 
   export const vehicleFilter = (dataInput, films) => {
 
@@ -116,4 +146,5 @@ export const characterFilter = (dataInput,films) => {
     return vehicles
   }
   
+
 
