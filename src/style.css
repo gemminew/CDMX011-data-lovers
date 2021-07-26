@@ -240,13 +240,12 @@ hr{
 #infoCharacter{
     padding: 10px;
     margin-right: 350px;
-    margin-left: 350px;
     border: solid;
     border-radius: 30px;
 }
 #imgCharacter{
     border-radius: 30px;
-    
+    margin-left: 350px;
 }
 button{
     border: none;

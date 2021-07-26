@@ -219,7 +219,8 @@ selectCharacter.addEventListener('change',() =>{
             function generatorHTMLcharacter(theCharacter){
 
                 return` 
-                <div id="infoCharacter"><h1> ${theCharacter[1]} <img src="${theCharacter[0]}" id="imgCharacter"></h1>
+                <img src="${theCharacter[0]}" id="imgCharacter">
+                <div id="infoCharacter"><h1> ${theCharacter[1]} </h1>
                 <p><b>Edad: </b>${theCharacter[2]}</p>
                 <p><b>Especie: </b>${theCharacter[3]}</p>
                 <p><b>Genero: </b>${theCharacter[4]}</p>
