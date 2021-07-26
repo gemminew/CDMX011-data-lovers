@@ -279,7 +279,7 @@ selectCharacter.addEventListener('change',() =>{
     function generatorVehicleHTML (theVehicle){
         return `
         <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
-        background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
+        background-color: bisque; border-radius: 1rem; margin-bottom: 1rem;">
         <div class="posterFilter" style="padding: 1rem;"><img src="${theVehicle.img}" id="filterImg"></div>
         <div class="Informative">
                 <p style="font-size: 50px;"><b> ${theVehicle.name}</b></p>
