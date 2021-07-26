@@ -227,7 +227,7 @@ selectCharacter.addEventListener('change',() =>{
                 <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
                 </div>`
             }            
-            document.getElementById("character").style.display="none";
+            document.getElementById("character").style.display=html;
             document.getElementById("characterFile").innerHTML = html;
 
         })
