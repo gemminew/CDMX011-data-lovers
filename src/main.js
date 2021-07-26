@@ -224,7 +224,8 @@ selectCharacter.addEventListener('change',() =>{
                 <p><b>Especie: </b>${theCharacter[3]}</p>
                 <p><b>Genero: </b>${theCharacter[4]}</p>
                 <p><b>Color de ojos: </b>${theCharacter[5]}</p>
-                <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
+                <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>`
+                
 
             }            
             document.getElementById("character").style.display="none";
