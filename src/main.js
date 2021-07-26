@@ -228,6 +228,7 @@ selectCharacter.addEventListener('change',() =>{
                 </div>`
             }
             document.getElementById("character").innerHTML = html
+            //hoaaa 
         })
     }
    })// final de Character
