@@ -65,6 +65,8 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
      document.getElementById('informativeFile').style.display = 'block';
      document.getElementById('character').style.display = 'none';
      document.getElementById('locations').style.display = 'none';
+     document.getElementById('vehicles').style.display = 'none';
+     document.getElementById('vehiclesFile').style.display = 'none'
      
      let dataInput = selectDir.value;
      let dataFiltered =['']
@@ -121,6 +123,8 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
      document.getElementById('informativeFile').style.display = 'block';
      document.getElementById('character').style.display = 'none';
      document.getElementById('locations').style.display = 'none';
+     document.getElementById('vehicles').style.display = 'none';
+     document.getElementById('vehiclesFile').style.display = 'none'
      let dataInput = selectProd.value;
      let dataFiltered =['']
      dataFiltered = producerFilter(dataInput,data.films);  
@@ -178,6 +182,8 @@ selectCharacter.addEventListener('change',() =>{
     document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
     document.getElementById('character').style.display = 'block';
     document.getElementById('locations').style.display = 'none';
+    document.getElementById('vehicles').style.display = 'none';
+    document.getElementById('vehiclesFile').style.display = 'none'
     
     let dataInput = selectCharacter.value
     let dataFiltered = [''];
@@ -219,7 +225,8 @@ selectCharacter.addEventListener('change',() =>{
             function generatorHTMLcharacter(theCharacter){
 
                 return` 
-                <div id="infoCharacter"><h1> ${theCharacter[1]} <img src="${theCharacter[0]}" id="imgCharacter"></h1>
+                <img src="${theCharacter[0]}" id="imgCharacter">
+                <div id="infoCharacter"><h1> ${theCharacter[1]} </h1>
                 <p><b>Edad: </b>${theCharacter[2]}</p>
                 <p><b>Especie: </b>${theCharacter[3]}</p>
                 <p><b>Genero: </b>${theCharacter[4]}</p>
@@ -227,8 +234,8 @@ selectCharacter.addEventListener('change',() =>{
                 <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
                 </div>`
             }            
-            document.getElementById("character").style.display=html;
-            document.getElementById("characterFile").innerHTML = html;
+            
+            document.getElementById("character").innerHTML = html;
 
         })
     }
@@ -251,6 +258,8 @@ selectLocation.addEventListener('change', ()=> {
     document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
     document.getElementById('character').style.display = 'none';
     document.getElementById('locations').style.display = 'flex';
+    document.getElementById('vehicles').style.display = 'none';
+    document.getElementById('vehiclesFile').style.display = 'none';
     let dataInput = selectLocation.value
     let dataFiltered = [''];
     dataFiltered = locationFilter(dataInput, data.films); //argument
@@ -303,6 +312,8 @@ selectLocation.addEventListener('change', ()=> {
     document.getElementById('FirstPage').style.display = 'none';
     document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
     document.getElementById('vehicles').style.display = 'flex';
+    document.getElementById('vehiclesFile').style.display = 'flex';
+    document.getElementById('locations').style.display = 'none';
     let dataInput = selectVehicle.value
     let dataFiltered = [''];
     dataFiltered = vehicleFilter(dataInput, data.films); //argument
