@@ -11,10 +11,10 @@ export const posters = (data) => {
     return DirPoster;
 };
 
-export const getUniqueValues = (array) => ( //como funciona?
+export const getUniqueValues = (array) => ( 
   array.filter((currentValue, index, arr) => (
       arr.indexOf(currentValue) === index
-  ))
+  )) 
 )
 
 //-----------------------Parte del order alfabeticamente, year and score
@@ -104,3 +104,16 @@ export const characterFilter = (dataInput,films) => {
     })[0] // 
     return characters
   }
+
+  export const vehicleFilter = (dataInput, films) => {
+
+    const vehicles = films 
+    .filter(function(film){ return film.title == dataInput;})
+    .map(function(film){
+      let listOfVehicles = film.vehicles;
+      return listOfVehicles
+    }) [0]
+    return vehicles
+  }
+  
+

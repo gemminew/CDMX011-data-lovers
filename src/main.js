@@ -1,4 +1,4 @@
-import { posters, orderBy, directorFilter, producerFilter, characterFilter, getUniqueValues} from './data.js';
+import { posters, orderBy, directorFilter, producerFilter, characterFilter, vehicleFilter, getUniqueValues} from './data.js';
 // import data from './data/lol/lol.js';
 import data from '../data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -214,16 +214,30 @@ selectCharacter.addEventListener('change',() =>{
                 html += generatorHTMLcharacter(theCharacter)
              })
             function generatorHTMLcharacter(theCharacter){
-                return` <img src="${theCharacter[0]}">
-                <div><p><b> ${theCharacter[1]}</b></p></br>
-                <p><b>Edad: </b>${theCharacter[2]}</p></br>
-                <p><b>Especie: </b>${theCharacter[3]}</p></br>
-                <p><b>Genero: </b>${theCharacter[4]}</p></br>
-                <p><b>Color de ojos: </b>${theCharacter[5]}</p></br>
-                <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
+                return` 
+                <div style="display: flex;
+                padding: 2rem;
+                background-color: bisque;
+                border-radius: 1.5rem;">
+                    <div style="display: flex; width: 50%;">
+                    <img src="${theCharacter[0]} style="--webkit-fill-available;"></div>
+                        <div style="
+                        flex-flow: column nowrap;
+                        padding-top: 4rem;
+                        padding-left: 1.5rem;
+                        font-size: 24px;">
+                        <p style="font-size: 50px;"><b> ${theCharacter[1]}</b></p>
+                        <p><b>Edad: </b>${theCharacter[2]}</p>
+                        <p><b>Especie: </b>${theCharacter[3]}</p>
+                        <p><b>Genero: </b>${theCharacter[4]}</p>
+                        <p><b>Color de ojos: </b>${theCharacter[5]}</p>
+                        <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
+                        </div>
                 </div>`
-            }
-            document.getElementById("character").innerHTML = html
+            }            
+            document.getElementById("character").style.display="none";
+            document.getElementById("characterFile").innerHTML = html;
+
         })
     }
     
@@ -231,14 +245,52 @@ selectCharacter.addEventListener('change',() =>{
     
    })
 
+ let selectVehicle= document.getElementById('selectVehicle');
+ let vehicleOptions = data.films.filter((film) => film.vehicles.length > 0)
+    .map(function(film) {return film.title})
+       console.log(vehicleOptions);
+       for (let i = 0; i < vehicleOptions.length; i++){
+           let vehicleName = vehicleOptions[i];
+           let vehicleElement = document.createElement("option")
+           
+           vehicleElement.textContent = vehicleName 
+           vehicleElement.value = vehicleName
+           selectVehicle.appendChild(vehicleElement);
+       }
+   
+
+ selectVehicle.addEventListener('change', () => {
+    document.getElementById('FirstPage').style.display = 'none';
+    document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
+    document.getElementById('vehicles').style.display = 'flex';
+    let dataInput = selectVehicle.value
+    let dataFiltered = [''];
+    dataFiltered = vehicleFilter(dataInput, data.films); //argument
+    const caption = 'cuenta con '+ dataFiltered.length + ' vehicles';
+    console.log(dataFiltered)
+
+    document.getElementById('caption').innerHTML = caption;
+
+    let vehicleHTML = ""
+    dataFiltered.forEach( theVehicle=>{
+       vehicleHTML += generatorVehicleHTML(theVehicle)
+    })
+
+    function generatorVehicleHTML (theVehicle){
+        return `
+        <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
+        background-color: bisque; border-radius: 1rem; margin-bottom: 1rem;">
+        <div class="posterFilter" style="padding: 1rem;"><img src="${theVehicle.img}" id="filterImg"></div>
+        <div class="Informative">
+                <p style="font-size: 50px;"><b> ${theVehicle.name}</b></p>
+                <p><b>Description: </b> ${theVehicle.description}<p>
+                <p><b>Pilot: </b>${theVehicle.pilot.name}<p>
+                <p><b>Vehicle Type: </b>${theVehicle.vehicle_class}<p>
+                <p><b>Length </b>${theVehicle.length}</p>
+          </div>
+        </div>`
+    }
     
-
-
-
-
-
-
-
-
-
+    document.getElementById("vehiclesFile").innerHTML = vehicleHTML
+} )
 
