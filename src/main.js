@@ -176,7 +176,7 @@ for(let i=0; i < characterOptions.length; i++){//Porque me lo pone arriba
 selectCharacter.addEventListener('change',() =>{
     document.getElementById('FirstPage').style.display = 'none';
     document.getElementById('informativeFile').style.display = 'none';// Sirve para desaparecer las fichas informativas, si es que estan
-    document.getElementById('character').style.display = 'flex';
+    document.getElementById('character').style.display = 'block';
     document.getElementById('locations').style.display = 'none';
     
     let dataInput = selectCharacter.value
@@ -218,8 +218,8 @@ selectCharacter.addEventListener('change',() =>{
              })
             function generatorHTMLcharacter(theCharacter){
 
-                return` <img src="${theCharacter[0]}" id="imgCharacter">
-                <div id="infoCharacter"><h1> ${theCharacter[1]}</h1>
+                return` 
+                <div id="infoCharacter"><h1> ${theCharacter[1]} <img src="${theCharacter[0]}" id="imgCharacter"></h1>
                 <p><b>Edad: </b>${theCharacter[2]}</p>
                 <p><b>Especie: </b>${theCharacter[3]}</p>
                 <p><b>Genero: </b>${theCharacter[4]}</p>
