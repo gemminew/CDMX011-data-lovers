@@ -109,12 +109,6 @@ export const characterFilter = (dataInput,films) => {
 
 
 export const titleLocation = (films) =>{
-   /*const titles = films.map(function(film){
-    let location = film.locations
-    if( location.length != 0){
-      return film.title
-    }
-  })*/
   let titles = ['']
   let j=0
   for(let i=0; i< films.length ;i++){
