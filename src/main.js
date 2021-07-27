@@ -19,6 +19,7 @@ let sortAndSelect = document.getElementById('sortinGhibli')
 sortAndSelect.addEventListener('change', () =>{
     let posterOrder = orderBy(data.films, sortAndSelect.value)
     let posterOrderHTML = '' //Aqui se guarda el nuevo orden
+    console.log(posterOrder)
     posterOrder.forEach(objeto =>{
         posterOrderHTML+=generatorPosterHTML(objeto)
     })
