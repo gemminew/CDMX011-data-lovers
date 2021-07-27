@@ -227,9 +227,17 @@ selectCharacter.addEventListener('change',() =>{
                 <p><b>Color de ojos: </b>${theCharacter[5]}</p>
                 <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
                 </div>`
+<<<<<<< HEAD
             }
             document.getElementById("character").innerHTML = html
             //hoaaa 
+=======
+
+            }
+            document.getElementById("character").innerHTML = html
+            //hoaaa 
+
+>>>>>>> 335cd6e50ed3d108513f7b5b29057d71ddefb793
         })
     }
    })// final de Character
