@@ -264,12 +264,19 @@ hr{
     border-radius: 30px;
   }
 #infoCharacter{
+
     padding: 10px;
+
+    /*padding: 10px;*/
+   /* margin-right: 200px;*/
+
     border: solid;
     border-radius: 30px;
 }
 #imgCharacter{
     border-radius: 30px;
+   /* margin-left: 200px;*/
+
 }
 button{
     border: none;
