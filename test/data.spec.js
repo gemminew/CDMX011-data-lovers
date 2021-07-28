@@ -1,5 +1,5 @@
-import { orderBy  } from '../src/data.js';
-import data from './data/ghibli.js'
+import { orderBy  } from 'data-lovers/src/data';
+import data from 'data-lovers/test/data/ghibli'
 //import dataOrderByAZ from './data/ghibliOrderByAZ.js'
 
 
@@ -14,6 +14,42 @@ describe('orderBy', () => {
   });
 
 });
+
+test('obtener poster', () => {
+  expect(data()).toContain('poster');
+});
+
+describe('posters', () => {
+
+  it('deberia retornar el arreglo de posters', () => {
+    const result = posters(data)
+    expect(typeof result).toBe('array')
+   // expect(Array.isArray(result)).toBe(true)
+  });
+
+});
+
+describe('vehicleFilter', () => {
+  const expected = vehicles;
+
+  it('matches if the actual array does not contain the expected elements', () => {
+    expect(['Alice', 'Bob', 'Eve']).toEqual(
+      expect.not.arrayContaining(expected),
+    );
+  });
+});
+
+
+describe('getUniqueValues', () => {
+  const expected = currentValue;
+
+  it('should not return the first element of every index', () => {
+    for(let i = 0; i<expected.length;i++)
+      for(let j = 0; j<expected.length;j++)
+      expect(expected[i]).not.toEqual(expected[j])
+  });
+});
+
 /*describe('example', () => {
   it('is a function', () => {
     expect(typeof example).toBe('function');
@@ -21,16 +57,5 @@ describe('orderBy', () => {
 
   it('returns `example`', () => {
     expect(example()).toBe('example');
-  });
-});
-
-
-describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
   });
 });*/

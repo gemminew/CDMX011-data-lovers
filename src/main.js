@@ -267,7 +267,7 @@ selectLocation.addEventListener('change', ()=> {
     let dataFiltered = [''];
     dataFiltered = locationFilter(dataInput, data.films); //argument
     console.log(dataFiltered)
-    const caption = 'has'+ dataFiltered.length + ' locacions.';
+    const caption = 'has'+ dataFiltered.length + ' locations.';
     document.getElementById('Name').innerHTML = dataInput;
     document.getElementById('caption').innerHTML = caption;
 
@@ -347,4 +347,5 @@ selectLocation.addEventListener('change', ()=> {
     }
     
     document.getElementById("vehiclesFile").innerHTML = vehicleHTML
+    document.getElementById("")
 } )

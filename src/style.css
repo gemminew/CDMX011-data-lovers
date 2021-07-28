@@ -294,4 +294,7 @@ button{
     padding: 10px;
 }
 
+#vehiclesFile{
+    justify-content: center;
+}
 /*flex-wrap: wrap;*/
