@@ -169,9 +169,9 @@ figcaption.poster { /*NO SE PORQUE NO SALEEE -----------------------------------
 
 }
 
-.poster:hover{
-    /*background-transition: swep to top;*/
-}
+/*.poster:hover{
+    background-transition: swep to top;
+}*/
 footer{
     max-width: -webkit-fill-available; 
     height: 60px; 
@@ -294,4 +294,7 @@ button{
     padding: 10px;
 }
 
+#vehiclesFile{
+    justify-content: center;
+}
 /*flex-wrap: wrap;*/
