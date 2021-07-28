@@ -1,4 +1,4 @@
-import { orderBy  } from 'data-lovers/src/data';
+import { orderBy ,posters, vehicles, currentValue } from 'data-lovers/src/data';
 import data from 'data-lovers/test/data/ghibli'
 //import dataOrderByAZ from './data/ghibliOrderByAZ.js'
 
