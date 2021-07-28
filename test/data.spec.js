@@ -1,7 +1,20 @@
-import { example, anotherExample } from '../src/data.js';
+import { orderBy  } from '../src/data.js';
+import data from './data/ghibli.js'
+//import dataOrderByAZ from './data/ghibliOrderByAZ.js'
 
 
-describe('example', () => {
+describe('orderBy', () => {
+  it('is a function', () => {
+    expect(typeof orderBy).toBe('function');
+  });
+
+  it('deberia retornar un arreglo ordenado (AZ)', () => {
+    const result = orderBy(data, 'AZ')
+    expect(result).toEqual(data[0],data[3],data[2], data[1], data[4]);
+  });
+
+});
+/*describe('example', () => {
   it('is a function', () => {
     expect(typeof example).toBe('function');
   });
@@ -20,4 +33,4 @@ describe('anotherExample', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
-});
+});*/

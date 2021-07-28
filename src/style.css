@@ -46,9 +46,17 @@ header{
 #Banner{
     color: #fff;
     font-size: 50px;
-    padding: 10px; 
+    /*padding: 10px; */
+    padding-left: 90px;
     margin: auto;
     font-family: 'Playfair Display', serif;
+}
+#LogoSG{
+    width: 250px; 
+    height: 60px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
 }
     
 header{
@@ -78,6 +86,9 @@ header{
 }
 .selInput:hover{
     background-color: #EBFFA5;
+}
+.selectSearh{
+    font-size: 30px;
 }
 
 /*.selInput:hover*/
@@ -114,8 +125,8 @@ option{
     text-align: center;
 }
 #sortinGhibli{
-    display: inline-block;
-	width: 20%;
+    display: block;
+	width: 50%;
   	padding: 7px 10px;
   	height: 42px;
   	outline: 0; 
@@ -124,9 +135,14 @@ option{
     border-radius: 12px;
     transition: all 0.25s ease;
     margin: 30px;
+    /*padding-left: 200px;*/
 }
 #sortinGhibli:hover{
 	background: rgba(217, 156, 184, 0.5);
+}
+#selectCenter{
+    padding-left: 400px;
+
 }
 figure {
     margin-inline-start: 0px;
@@ -146,6 +162,11 @@ figure {
 
 .poster img{
     width: 100%;
+}
+figcaption.poster { /*NO SE PORQUE NO SALEEE ------------------------------------------------*/
+    background-color: #000 !important;
+    color: #fff;
+
 }
 
 /*.poster:hover{
@@ -209,6 +230,8 @@ hr{
     justify-content: space-evenly;
     align-content: stretch;
     flex-flow: row wrap !important;
+    padding-left: 100px;
+    /*padding-right: 100px;*/
 }
 #character figure {
     border:none;
@@ -218,9 +241,12 @@ hr{
     border-radius: 20px;
   }
 #character figure img { /*hace que la figure se ajuste al tamaño que tiene la imagen*/
-    width: 100%;
+   width: 250px;
+    height: 220px;
+    object-fit: cover; /*Es para que la imagen se ajuste al tama;o */
     display: block;
     border-radius: 30px;
+
 }
 #character figure img:hover{
     transform: scale(1.1);
@@ -234,19 +260,23 @@ hr{
     font-style: italic;
     padding: 2px;
     text-align: center;
-    font-size: large; /*no se porque no me quiere cambiar el tama;o de la letra*/
+    font-size: x-large; /*no se porque no me quiere cambiar el tama;o de la letra*/
     border-radius: 30px;
   }
 #infoCharacter{
+
     padding: 10px;
-    margin-right: 200px;
+
+    /*padding: 10px;*/
+   /* margin-right: 200px;*/
+
     border: solid;
     border-radius: 30px;
 }
 #imgCharacter{
-    margin-left: 200px;
     border-radius: 30px;
-    
+   /* margin-left: 200px;*/
+
 }
 button{
     border: none;
