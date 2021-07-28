@@ -1,4 +1,4 @@
-import { orderBy ,posters, vehicles, currentValue } from 'data-lovers/src/data';
+import { orderBy ,posters, vehicleFilter, currentValue } from 'data-lovers/src/data';
 import data from 'data-lovers/test/data/ghibli'
 //import dataOrderByAZ from './data/ghibliOrderByAZ.js'
 
@@ -20,6 +20,11 @@ test('obtener poster', () => {
 });
 
 describe('posters', () => {
+  
+  it('deberia retornar el arreglo de posters', () => {
+    expect(typeof posters).toBe('function')
+   // expect(Array.isArray(result)).toBe(true)
+  });
 
   it('deberia retornar el arreglo de posters', () => {
     const result = posters(data)
@@ -30,7 +35,7 @@ describe('posters', () => {
 });
 
 describe('vehicleFilter', () => {
-  const expected = vehicles;
+  const expected = vehicleFilter('castillo vagabundo',data);
 
   it('matches if the actual array does not contain the expected elements', () => {
     expect(['Alice', 'Bob', 'Eve']).toEqual(
