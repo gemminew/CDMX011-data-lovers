@@ -65,17 +65,23 @@ export const directorFilter = (dataInput,films) => {
     const directorFilms = films.filter(function(films){
        return films.director === dataInput;})
        .map(function(films){
-        let numberPeople = films.people;
-        let namesOfPeople = [];
-        for(let j=0; j<numberPeople.length; j++){
-          namesOfPeople[j] = films.people[j].name ;
-        }
-         let information =  {poster: films.poster, title: films.title, year: films.release_date, score: films.rt_score, description: films.description, director: films.director, producer: films.producer, characters: namesOfPeople.join()};
-         return information 
+         return films 
        })
        console.log(directorFilms);
        
        return directorFilms
+}
+
+export const joinPeopleName = (film) => {
+  let numberPeople = film.people;
+  let namesOfPeople = [];
+    for(let j=0; j<numberPeople.length; j++){
+      namesOfPeople[j] = film.people[j].name ;
+    }
+    let names = namesOfPeople.join(', ');
+
+    console.log(names)
+ return names 
 }
 
 export const producerFilter = (dataInput,films) => {
@@ -83,13 +89,7 @@ export const producerFilter = (dataInput,films) => {
   const producers = films.filter(function(films){
      return films.producer === dataInput;})
      .map(function(films){
-      let numberPeople = films.people;
-      let namesOfPeople = [];
-      for(let j=0; j<numberPeople.length; j++){
-        namesOfPeople[j] = films.people[j].name ;
-      }
-       let information = {poster: films.poster, title: films.title, year: films.release_date, score: films.rt_score, description: films.description, director: films.director, producer: films.producer, characters: namesOfPeople.join()};
-       return information 
+      return films
      })
      return producers
 }

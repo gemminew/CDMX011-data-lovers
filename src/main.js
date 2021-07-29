@@ -1,5 +1,5 @@
 
-import { posters, orderBy, directorFilter, producerFilter, characterFilter, getUniqueValues, titleLocation,locationFilter, vehicleFilter} from './data.js';
+import { posters, orderBy, directorFilter, producerFilter, characterFilter, getUniqueValues, titleLocation,locationFilter, vehicleFilter,joinPeopleName} from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
 console.log(data)
@@ -74,6 +74,8 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
      dataFiltered = directorFilter(dataInput,data.films);  
      const caption = 'He has directed '+ dataFiltered.length + ' films';
     
+     console.log(directorFilter("Director No definido",data.films))
+
      document.getElementById('Name').innerHTML = dataInput;
      document.getElementById('caption').innerHTML = caption;
      console.log('Numero de peliculas: '+ dataFiltered.length)
@@ -81,6 +83,7 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
      /* ----- HTML DINAMICO*/
      let directorHTML = ""
      dataFiltered.forEach( oneDirector =>{
+         oneDirector.names = joinPeopleName(oneDirector)
          directorHTML += generatorDirectorHTML(oneDirector)
      })
      function generatorDirectorHTML(oneDirector){
@@ -91,14 +94,15 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
                 <img src="${oneDirector.poster}" id="filterImg"></div>
             <div class="Informative">
             <h1>${oneDirector.title}</h1><hr color="#000">
-            <p><b>Year: </b><span id="year">${oneDirector.year}</span></p>
-            <p><b>Score: </b><span id="score">${oneDirector.score}</span></p>
+            <p><b>Year: </b><span id="year">${oneDirector.release_date}</span></p>
+            <p><b>Score: </b><span id="score">${oneDirector.rt_score}</span></p>
             <p><b>Descripcion: </b><span id='filmDescription'>${oneDirector.description}</span></p>
             <p><b>Producer: </b><span id="producer">${oneDirector.producer}</span></p>
             <p><b>Director: </b><span id="director">${oneDirector.director}</span></p>
-            <p><b>Movie characters:  </b><span id="people">${oneDirector.characters}</span></p>
+            <p><b>Movie characters:  </b><span id="people">${oneDirector.names}</span></p>
             </div>
           </div>  `
+          
      }
 
      document.getElementById("informativeFile").innerHTML = directorHTML
@@ -138,6 +142,7 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
      /* ----- HTML DINAMICO*/
      let producerHTML = ""
      dataFiltered.forEach( theProducer=>{
+         theProducer.names = joinPeopleName(theProducer)
         producerHTML += generatorProducerHTML(theProducer)
      })
      function generatorProducerHTML(theProducer){
@@ -147,12 +152,12 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
          <div class="posterFilter" style="padding: 1rem;"><img src="${theProducer.poster}" id="filterImg"></div>
          <div class="Informative">
            <h1>${theProducer.title}</h1><hr color="#000">
-           <p><b>Year: </b><span id="year">${theProducer.year}</span></p>
-           <p><b>Score: </b><span id="score">${theProducer.score}</span></p>
+           <p><b>Year: </b><span id="year">${theProducer.release_date}</span></p>
+           <p><b>Score: </b><span id="score">${theProducer.rt_score}</span></p>
            <p><b>Descripcion: </b><span id='filmDescription'>${theProducer.description}</span></p>
            <p><b>Producer: </b><span id="producer">${theProducer.producer}</span></p>
            <p><b>Director: </b><span id="director">${theProducer.director}</span></p>
-           <p><b>Movie characters:  </b><span id="people">${theProducer.characters}</span></p>
+           <p><b>Movie characters:  </b><span id="people">${theProducer.names}</span></p>
          </div>
          </div>`
 
