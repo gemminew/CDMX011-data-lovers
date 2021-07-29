@@ -248,6 +248,7 @@ selectCharacter.addEventListener('change',() =>{
     }
    })// final de Character
 ///// -----------------------------------------------------------------------seccion Location
+
 let selectLocation = document.getElementById('selectLocation');
    let locationOptions = titleLocation(data.films)
    console.log(locationOptions)
@@ -271,7 +272,7 @@ selectLocation.addEventListener('change', ()=> {
     let dataFiltered = [''];
     dataFiltered = locationFilter(dataInput, data.films); //argument
     console.log(dataFiltered)
-    const caption = 'has'+ dataFiltered.length + ' locacions.';
+    const caption = 'has'+ dataFiltered.length + ' locations.';
     document.getElementById('Name').innerHTML = dataInput;
     document.getElementById('caption').innerHTML = caption;
 
@@ -337,19 +338,19 @@ selectLocation.addEventListener('change', ()=> {
     function generatorVehicleHTML (theVehicle){
         return `
         <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
-        background-color: bisque; border-radius: 1rem; margin-bottom: 1rem;">
+        background-color: bisque; border-radius: 1rem; margin-bottom: 10px;">
         <div class="posterFilter" style="padding: 1rem;"><img src="${theVehicle.img}" id="filterImg"></div>
-        <div class="Informative">
+        <div class="informativeLocation">
                 <p style="font-size: 50px;"><b> ${theVehicle.name}</b></p>
                 <p><b>Description: </b> ${theVehicle.description}<p>
                 <p><b>Pilot: </b>${theVehicle.pilot.name}<p>
                 <p><b>Vehicle Type: </b>${theVehicle.vehicle_class}<p>
                 <p><b>Length </b>${theVehicle.length}</p>
           </div>
-        </div>`
+        </div>
+        `
     }
     
     document.getElementById("vehiclesFile").innerHTML = vehicleHTML
+    document.getElementById("")
 } )
-
-//holaa
