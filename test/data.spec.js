@@ -1,4 +1,4 @@
-import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,posters } from '../src/data.js';
+import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,posters, getUniqueValues, titleLocation } from '../src/data.js';
 import data from './data/ghibli.js'
 
 //import dataOrderByAZ from './data/ghibliOrderByAZ.js'
@@ -809,39 +809,49 @@ describe('vehicleFilter', () => {
   });
 });
 
-test('obtener poster', () => {
-  expect(data()).toContain('poster');
-});
-
 describe('posters', () => {
 
   it('deberia retornar el arreglo de posters', () => {
-    const result = posters(data)
-    expect(typeof result).toBe('array')
+    expect(typeof posters).toBe('function');
    // expect(Array.isArray(result)).toBe(true)
   });
 
-});
-
-describe('vehicleFilter', () => {
-  const expected = vehicles;
-
-  it('matches if the actual array does not contain the expected elements', () => {
-    expect(['Alice', 'Bob', 'Eve']).toEqual(
-      expect.not.arrayContaining(expected),
-    );
-  });
+  it('should not return undefined', () => {
+    const result= posters({ films: data })
+    expect(result).not.toEqual(undefined);
+  })
+  it('should return an array of urls', () =>{
+    let result= posters({ films: data })
+    for(let i = 0; i < result.length; i++)
+      expect(result[i]).toMatch(/^https?:\/\//gi)
+  })
 });
 
 
 describe('getUniqueValues', () => {
-  const expected = currentValue;
-
-  it('should not return the first element of every index', () => {
-    for(let i = 0; i<expected.length;i++)
-      for(let j = 0; j<expected.length;j++)
-      expect(expected[i]).not.toEqual(expected[j])
+  it('is a function', () => {
+    expect(typeof getUniqueValues).toBe('function');
   });
+
+
+
+  it('should not return the first element of every index', () => {  
+  const expected = getUniqueValues(['a','b','b','c']);
+    for(let i = 0; i<expected.length;i++)
+      for(let j = 1; j<expected.length;j++)
+        if (i != j )
+          expect(expected[i]).not.toEqual(expected[j])
+  });
+});
+
+describe('titleLocation', () => {
+  it('is a function', () => {
+    expect(typeof titleLocation).toBe('function');
+  });
+
+/*   it('returns `example`', () => {
+    expect(example()).toBe('example');
+  }); */
 });
 
 /*describe('example', () => {
