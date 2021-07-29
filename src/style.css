@@ -35,8 +35,13 @@ header{
         height: auto !important;
     }
 
-    .poster{
-        flex-direction: column wrap !important;
+    .moviesPosters{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .posters{
+        flex-basis:auto;
     }
 }   
 #carousel{
@@ -148,11 +153,12 @@ figure {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-#movies{
+
+.moviesPosters{
     display: flex;
     justify-content: space-evenly;
     align-content: stretch;
-    flex-flow: row wrap !important; 
+    flex-flow: row wrap;
 }
 
 .poster {

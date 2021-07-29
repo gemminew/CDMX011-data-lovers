@@ -1,4 +1,6 @@
-import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,producerFilter ,joinPeopleName} from '../src/data.js';
+
+import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,producerFilter ,joinPeopleName,posters, getUniqueValues, titleLocation } from '../src/data.js';
+
 import data from './data/ghibli.js'
 
 //import dataOrderByAZ from './data/ghibliOrderByAZ.js'
@@ -792,6 +794,14 @@ describe('joinPeopleName', () => {
   });
 });
 
+describe('posters', () => {
+  
+  it('deberia retornar el arreglo de posters', () => {
+    expect(typeof posters).toBe('function')
+   // expect(Array.isArray(result)).toBe(true)
+  })
+});
+
 describe('characterFilter', () => {
   it('is a function', () => {
     expect(typeof characterFilter).toBe('function');
@@ -831,6 +841,7 @@ describe('locationFilter', () => {
 });
 
 describe('vehicleFilter', () => {
+  //const expected = vehicleFilter('castillo vagabundo',data);
   it('is a function', () => {
     expect(typeof vehicleFilter).toBe('function');
   });
@@ -845,4 +856,59 @@ describe('vehicleFilter', () => {
     expect(result).toEqual(undefined);
   });
 });
+
+describe('posters', () => {
+
+  it('deberia retornar el arreglo de posters', () => {
+    expect(typeof posters).toBe('function');
+   // expect(Array.isArray(result)).toBe(true)
+  });
+
+  it('should not return undefined', () => {
+    const result= posters({ films: data })
+    expect(result).not.toEqual(undefined);
+  })
+  it('should return an array of urls', () =>{
+    let result= posters({ films: data })
+    for(let i = 0; i < result.length; i++)
+      expect(result[i]).toMatch(/^https?:\/\//gi)
+  })
+});
+
+
+describe('getUniqueValues', () => {
+  it('is a function', () => {
+    expect(typeof getUniqueValues).toBe('function');
+  });
+
+
+
+  it('should not return the first element of every index', () => {  
+  const expected = getUniqueValues(['a','b','b','c']);
+    for(let i = 0; i<expected.length;i++)
+      for(let j = 1; j<expected.length;j++)
+        if (i != j )
+          expect(expected[i]).not.toEqual(expected[j])
+  });
+});
+
+describe('titleLocation', () => {
+  it('is a function', () => {
+    expect(typeof titleLocation).toBe('function');
+  });
+
+/*   it('returns `example`', () => {
+    expect(example()).toBe('example');
+  }); */
+});
+
+/*describe('example', () => {
+  it('is a function', () => {
+    expect(typeof example).toBe('function');
+  });
+
+  it('returns `example`', () => {
+    expect(example()).toBe('example');
+  });
+});*/
 
