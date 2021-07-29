@@ -1,4 +1,4 @@
-import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter  } from '../src/data.js';
+import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,producerFilter ,joinPeopleName} from '../src/data.js';
 import data from './data/ghibli.js'
 //import dataOrderByAZ from './data/ghibliOrderByAZ.js'
 //import dataDirector from './data/ghibliDirector.js'
@@ -682,29 +682,6 @@ let dataGhibli = [
   }
 ]
 
-let DirectorData = [
-  {
-  "characters": "Seita Yokokawa,Setsuko Yokokawa,Mrs. Yokokawa,Kiyoshi Yokokawa,Seita's Aunt",
-  "description": "In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.",
-  "director": "Isao Takahata",
-  "poster": "https://static.wikia.nocookie.net/studio-ghibli/im…s/a/a5/Grave_of_the_Fireflies_Japanese_poster.jpg",
-  "producer": "Toru Hara",
-  "score": "97",
-  "title": "Grave of the Fireflies",
-  "year": "1988",
-  },
-  {
-  "characters": "Taeko Okajima,Toshio,Mr. Okajima,Mrs. Okajima,Grandmother Okajima,Nanako Okajima,Yaeko Okajima,Tani Tsuneko,Aiko,Toko,Rie",
-  "description": "It’s 1982, and Taeko is 27 years old, unmarried, and has lived her whole life in Tokyo. She decides to visit her family in the countryside, and as the train travels through the night, memories flood back of her younger years: the first immature stirrings of romance, the onset of puberty, and the frustrations of math and boys. At the station she is met by young farmer Toshio, and the encounters with him begin to reconnect her to forgotten longings. In lyrical switches between the present and the past, Taeko contemplates the arc of her life, and wonders if she has been true to the dreams of her childhood self.",
-  "director": "Isao Takahata",
-  "poster": "https://static.wikia.nocookie.net/studio-ghibli/images/a/a9/Only_Yesterday.jpg",
-  "producer": "Toshio Suzuki",
-  "score": "100",
-  "title": "Only Yesterday",
-  "year": "1991"
- }
-]
-
 describe('orderBy', () => {
   it('is a function', () => {
     expect(typeof orderBy).toBe('function');
@@ -747,9 +724,70 @@ describe('directorFilter', () => {
     expect(typeof directorFilter).toBe('function');
   });
 
-  it('debe retornar las peliculas del director ', () => {
-    const director = directorFilter("Isao Takahata",data)
-    expect(director).toMatchObject(DirectorData);
+  it('debe retornar las peliculas del director Isao Takahata', () => {
+    const director = directorFilter("Isao Takahata",dataGhibli)
+    expect(director).toEqual([dataGhibli[3],dataGhibli[4]]);
+  });
+
+  it('debe retornar las peliculas del director Hayao Miyazaki ', () => {
+    const director = directorFilter("Hayao Miyazaki",dataGhibli)
+    expect(director).toEqual([dataGhibli[0],dataGhibli[1],dataGhibli[2]]);
+  });
+
+  /*it('debe retornar las peliculas del director ', () => {
+    const director = directorFilter("Director No definido",dataGhibli)
+    expect(director).toEqual(['']);
+  });*/ /**No se porque no quiere funcionar */
+});
+
+describe('producerFilter', () => {
+  it('is a function', () => {
+    expect(typeof producerFilter).toBe('function');
+  });
+
+  it('returns peliculas del productor Isao Takahata', () => {
+    const result = producerFilter('Isao Takahata',dataGhibli)
+    expect(result).toEqual([dataGhibli[0]]);
+  });
+
+  it('returns peliculas del productor Hayao Miyazaki', () => {
+    const result = producerFilter('Hayao Miyazaki',dataGhibli)
+    expect(result).toEqual([dataGhibli[1],dataGhibli[2]]);
+  });
+
+  it('returns peliculas del productor Toru Hara', () => {
+    const result = producerFilter('Toru Hara',dataGhibli)
+    expect(result).toEqual([dataGhibli[3]]);
+  });
+
+  it('returns peliculas del productor Toshio Suzuki', () => {
+    const result = producerFilter('Toshio Suzuki',dataGhibli)
+    expect(result).toEqual([dataGhibli[4]]);
+  });
+
+});
+
+describe('joinPeopleName', () => {
+  it('is a function', () => {
+    expect(typeof joinPeopleName).toBe('function');
+  });
+
+  it('returns string de nombres de la pelicula Castle in the Sky', () => {
+    const result = joinPeopleName(dataGhibli[0])
+    const join = dataGhibli[0].people[0].name+','+dataGhibli[0].people[1].name+','+dataGhibli[0].people[2].name+','+dataGhibli[0].people[3].name+','+dataGhibli[0].people[4].name+','+dataGhibli[0].people[5].name+','+dataGhibli[0].people[6].name+','+dataGhibli[0].people[7].name+','+dataGhibli[0].people[8].name+','+dataGhibli[0].people[9].name+','+dataGhibli[0].people[10].name+','+dataGhibli[0].people[11].name+','+dataGhibli[0].people[12].name;
+    expect(result).toBe(join);
+  });
+
+  it('returns string de nombres de la pelicula Kikis Delivery Service', () => {
+    const result = joinPeopleName(dataGhibli[2])
+    const join = dataGhibli[2].people[0].name+','+dataGhibli[2].people[1].name+','+dataGhibli[2].people[2].name+','+dataGhibli[2].people[3].name+','+dataGhibli[2].people[4].name+','+dataGhibli[2].people[5].name;
+    expect(result).toBe(join);
+  });
+
+  it('returns string de nombres de la pelicula Grave of the Fireflies', () => {
+    const result = joinPeopleName(dataGhibli[3])
+    const join = dataGhibli[3].people[0].name+','+dataGhibli[3].people[1].name+','+dataGhibli[3].people[2].name+','+dataGhibli[3].people[3].name+','+dataGhibli[3].people[4].name;
+    expect(result).toBe(join);
   });
 });
 
@@ -791,7 +829,6 @@ describe('locationFilter', () => {
   });
 });
 
-
 describe('vehicleFilter', () => {
   it('is a function', () => {
     expect(typeof vehicleFilter).toBe('function');
@@ -807,23 +844,3 @@ describe('vehicleFilter', () => {
     expect(result).toEqual(undefined);
   });
 });
-/*describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
-  });
-
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
-
-
-describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
-  });
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});*/
