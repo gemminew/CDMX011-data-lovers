@@ -78,7 +78,7 @@ export const joinPeopleName = (film) => {
     for(let j=0; j<numberPeople.length; j++){
       namesOfPeople[j] = film.people[j].name ;
     }
-    let names = namesOfPeople.join();
+    let names = namesOfPeople.join(', ');
 
     console.log(names)
  return names 

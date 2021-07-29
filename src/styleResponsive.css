@@ -1,12 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 
 body{
-
-/*     padding: 0px;
-  
-    border: 0px; */
     background-color:  rgba(217, 156, 184, 0.2);
     margin: auto;
     font-family: 'Playfair Display', serif;
@@ -29,16 +24,6 @@ header{
     height: 80px; */
 }
 
-@media only screen and (min-width: 768px) {
-    #carousel{
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    .poster{
-        flex-direction: column wrap !important;
-    }
-}   
 #carousel{
     max-width: -webkit-fill-available; /*1345px*/
     height: 490px;
@@ -102,13 +87,6 @@ option{
    transition: all 0.25s ease;
 }
 
-
-@media only screen and (min-width: 768px) {
-#carousel{
-    width: 100% !important;
-    height: auto !important;
-}
-}   
 .carousel{ /**Tuve que cambiarlo a clase i don´t kwon why*/
     max-width: -webkit-fill-available; /*1345px*/
     height: 200px;
@@ -156,7 +134,7 @@ figure {
 }
 
 .poster {
-    flex-basis: 21%; /* explanation below */
+    flex-basis: 45%; /* explanation below */
     margin-bottom: 1rem;
 }
 
@@ -194,7 +172,9 @@ footer{
     padding: 1.5rem 2.5rem;
 }
 
-
+.flexRow{
+    display: block !important;
+}
 #SecoundPage{
     padding: 2rem;
     margin-bottom: 1rem;
@@ -218,10 +198,9 @@ option{
     font-size: 2rem;
 }
 #informativeFile{
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
 }
-
 hr{
     color: #000;
 }
@@ -298,5 +277,4 @@ button{
 #vehiclesFile{
     justify-content: center;
 }
-
 /*flex-wrap: wrap;*/
