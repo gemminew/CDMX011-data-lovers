@@ -1,6 +1,5 @@
-import { orderBy ,posters, vehicleFilter, currentValue } from 'data-lovers/src/data';
-import data from 'data-lovers/test/data/ghibli'
-import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,posters, getUniqueValues, titleLocation } from '../src/data.js';
+//import {currentValue } from 'data-lovers/src/data';
+import { orderBy, directorFilter , characterFilter, locationFilter, vehicleFilter ,posters, getUniqueValues, titleLocation } from '../src/data.js';
 import data from './data/ghibli.js'
 
 //import dataOrderByAZ from './data/ghibliOrderByAZ.js'
@@ -761,8 +760,9 @@ describe('posters', () => {
   it('deberia retornar el arreglo de posters', () => {
     expect(typeof posters).toBe('function')
    // expect(Array.isArray(result)).toBe(true)
-  }};
-  
+  })
+});
+
 describe('characterFilter', () => {
   it('is a function', () => {
     expect(typeof characterFilter).toBe('function');
@@ -803,7 +803,7 @@ describe('locationFilter', () => {
 
 
 describe('vehicleFilter', () => {
-  const expected = vehicleFilter('castillo vagabundo',data);
+  //const expected = vehicleFilter('castillo vagabundo',data);
   it('is a function', () => {
     expect(typeof vehicleFilter).toBe('function');
   });
