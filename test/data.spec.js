@@ -777,19 +777,19 @@ describe('joinPeopleName', () => {
 
   it('returns string de nombres de la pelicula Castle in the Sky', () => {
     const result = joinPeopleName(dataGhibli[0])
-    const join = dataGhibli[0].people[0].name+','+dataGhibli[0].people[1].name+','+dataGhibli[0].people[2].name+','+dataGhibli[0].people[3].name+','+dataGhibli[0].people[4].name+','+dataGhibli[0].people[5].name+','+dataGhibli[0].people[6].name+','+dataGhibli[0].people[7].name+','+dataGhibli[0].people[8].name+','+dataGhibli[0].people[9].name+','+dataGhibli[0].people[10].name+','+dataGhibli[0].people[11].name+','+dataGhibli[0].people[12].name;
+    const join = dataGhibli[0].people[0].name+', '+dataGhibli[0].people[1].name+', '+dataGhibli[0].people[2].name+', '+dataGhibli[0].people[3].name+', '+dataGhibli[0].people[4].name+', '+dataGhibli[0].people[5].name+', '+dataGhibli[0].people[6].name+', '+dataGhibli[0].people[7].name+', '+dataGhibli[0].people[8].name+', '+dataGhibli[0].people[9].name+', '+dataGhibli[0].people[10].name+', '+dataGhibli[0].people[11].name+', '+dataGhibli[0].people[12].name;
     expect(result).toBe(join);
   });
 
   it('returns string de nombres de la pelicula Kikis Delivery Service', () => {
     const result = joinPeopleName(dataGhibli[2])
-    const join = dataGhibli[2].people[0].name+','+dataGhibli[2].people[1].name+','+dataGhibli[2].people[2].name+','+dataGhibli[2].people[3].name+','+dataGhibli[2].people[4].name+','+dataGhibli[2].people[5].name;
+    const join = dataGhibli[2].people[0].name+', '+dataGhibli[2].people[1].name+', '+dataGhibli[2].people[2].name+', '+dataGhibli[2].people[3].name+', '+dataGhibli[2].people[4].name+', '+dataGhibli[2].people[5].name;
     expect(result).toBe(join);
   });
 
   it('returns string de nombres de la pelicula Grave of the Fireflies', () => {
     const result = joinPeopleName(dataGhibli[3])
-    const join = dataGhibli[3].people[0].name+','+dataGhibli[3].people[1].name+','+dataGhibli[3].people[2].name+','+dataGhibli[3].people[3].name+','+dataGhibli[3].people[4].name;
+    const join = dataGhibli[3].people[0].name+', '+dataGhibli[3].people[1].name+', '+dataGhibli[3].people[2].name+', '+dataGhibli[3].people[3].name+', '+dataGhibli[3].people[4].name;
     expect(result).toBe(join);
   });
 });
@@ -875,7 +875,6 @@ describe('posters', () => {
   })
 });
 
-
 describe('getUniqueValues', () => {
   it('is a function', () => {
     expect(typeof getUniqueValues).toBe('function');
@@ -897,18 +896,10 @@ describe('titleLocation', () => {
     expect(typeof titleLocation).toBe('function');
   });
 
-/*   it('returns `example`', () => {
-    expect(example()).toBe('example');
-  }); */
+  it('returns listado de titulos de pelicula que cuentan con locaciones', () => {
+    const result = titleLocation(dataGhibli)
+    expect(result).toEqual([dataGhibli[0].title,dataGhibli[1].title,dataGhibli[2].title,dataGhibli[4].title]);
+  }); 
 });
 
-/*describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
-  });
-
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});*/
 

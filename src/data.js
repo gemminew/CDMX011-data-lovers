@@ -109,16 +109,16 @@ export const characterFilter = (dataInput,films) => {
 
 
 export const titleLocation = (films) =>{
-  let titles = ['']
+  let titlesOfFilmsWithLocation = ['']
   let j=0
   for(let i=0; i< films.length ;i++){
-    let location = films[i].locations
-    if( location.length != 0){
-      titles[j]= films[i].title
+    let locationObjFilms = films[i].locations
+    if( locationObjFilms.length != 0){
+      titlesOfFilmsWithLocation[j]= films[i].title
       j++
     }else{continue}
   }
-  return titles
+  return titlesOfFilmsWithLocation
 }
 
 export const locationFilter = (dataInput,films) =>{
