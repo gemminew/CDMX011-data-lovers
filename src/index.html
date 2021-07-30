@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="styleResponsive.css"   media="(max-device-width: 750px)"/>
+    <!--<link rel="stylesheet" href="styleResponsive.css"   media="(max-device-width: 750px)"/>-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
   </head>
   <body>
     <header>
@@ -14,28 +15,32 @@
     </header>
     <main>
       <div class="carousel"></div>
-      <div class="search-bar">   
-        <h3> Search by: </h3>
+      <div class="search-bar">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-search"></i>
+        </label>  
+        <h2> Search by: </h2>
         <div id="mySelects" >
-          <select class="selInput" id="selectDirector">
-            <option value="" selected disabled><span>Directors</span> </option>
-          </select>
-          <select class="selInput" id="selectProducer">
-            <option value="" selected disabled>Producers</option>
-          </select>
-          <select class="selInput" id="selectCharacter">
-            <option value="" selected disabled>Characters of </option>
-          </select>
-          <select class="selInput" id="selectLocation">
-            <option value="" selected disabled>Locations</option>
-          </select>
-          <select class="selInput" id="selectVehicle">
-            <option value="" selected disabled> Vehicles</option>
-          </select>
+          <ul>
+            <li><select class="selInput" id="selectDirector">
+              <option value="" selected disabled><span>Directors</span> </option>
+            </select></li>
+            <li><select class="selInput" id="selectProducer">
+              <option value="" selected disabled>Producers</option>
+            </select></li>
+            <li><select class="selInput" id="selectCharacter">
+              <option value="" selected disabled>Characters of </option>
+            </select></li>
+            <li><select class="selInput" id="selectLocation">
+              <option value="" selected disabled>Locations</option>
+            </select></li>
+            <li><select class="selInput" id="selectVehicle">
+              <option value="" selected disabled> Vehicles</option>
+            </select></li>
+          </ul>
         </div>  
-        <a href="javascript:void(0);" class="icon" onclick="myFuntion()">
-          <i class="fa fa-bars"></i>
-        </a>
+         
        </div>
       <div id="FirstPage">
         <h1 id="title">ALL FILMS</h1>
