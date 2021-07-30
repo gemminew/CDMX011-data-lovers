@@ -794,13 +794,6 @@ describe('joinPeopleName', () => {
   });
 });
 
-describe('posters', () => {
-  
-  it('deberia retornar el arreglo de posters', () => {
-    expect(typeof posters).toBe('function')
-   // expect(Array.isArray(result)).toBe(true)
-  })
-});
 
 describe('characterFilter', () => {
   it('is a function', () => {
