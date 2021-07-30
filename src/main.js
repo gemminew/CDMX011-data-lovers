@@ -1,29 +1,27 @@
 
-import { posters, orderBy, directorFilter, producerFilter, characterFilter, getUniqueValues, titleLocation,locationFilter, vehicleFilter,joinPeopleName} from './data.js';
+import { showPosters, orderBy, directorFilter, producerFilter, characterFilter, getUniqueValues, locationTitleToSelect,locationFilter, vehicleFilter,joinPeopleName} from './data.js';
 import data from '../data/ghibli/ghibli.js';
 
-console.log(data)
-let Adress = posters(data);
-///---------- Seccion de la primera pagina donde muestra los posters
+let imagePosters = showPosters(data);
+///---------- Seccion de la primera pagina donde muestra los showPosters
 let posterHTML = ""
-Adress.forEach(objeto =>{
+imagePosters.forEach(objeto =>{
     posterHTML+=generatorPosterHTML(objeto)
 })
 function generatorPosterHTML(objeto){
     return `<div class="poster"><img src="${objeto}" ></div>`
 }
+document.getElementById("allFilms").innerHTML = posterHTML
 
-document.getElementById("movies").innerHTML = posterHTML
-//document.getElementById("pruebaPeople").src = data.films[5].people[0].img
 let sortAndSelect = document.getElementById('sortinGhibli')
 sortAndSelect.addEventListener('change', () =>{
     let posterOrder = orderBy(data.films, sortAndSelect.value)
     let posterOrderHTML = '' //Aqui se guarda el nuevo orden
-    console.log(posterOrder)
+
     posterOrder.forEach(objeto =>{
         posterOrderHTML+=generatorPosterHTML(objeto)
     })
-    // if(sortAndSelect.value == 'AZ' || sortAndSelect.value == 'ZA'){ //NO ME DEJA METER LA FUNCION EN EL IF  :(
+
     function generatorPosterHTML(objeto){
         if(sortAndSelect.value == 'AZ' || sortAndSelect.value == 'ZA'){
         return `<figure class="poster">
@@ -44,24 +42,24 @@ sortAndSelect.addEventListener('change', () =>{
             </figure>`
         }
     }
-    document.getElementById("movies").innerHTML = posterOrderHTML
+    document.getElementById("allFilms").innerHTML = posterOrderHTML
 })
 
 
 //SELECCIONAR DIRECTOR directo DESDE la DATA // ----------------seccion de DIRECTORES
-let selectDir = document.getElementById('selectDirector');
+let selectOneDirector = document.getElementById('selectDirector');
 let directorOptions = data.films.map(function(film) {return film.director})
 directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elementos
-    console.log(directorOptions);
+  
     for (let i = 0; i < directorOptions.length; i++){
         let directorName = directorOptions[i];
-        let dirElement = document.createElement("option")
+        let directorElement = document.createElement("option")
         
-        dirElement.textContent = directorName 
-        dirElement.value = directorName
-        selectDir.appendChild(dirElement);
+        directorElement.textContent = directorName 
+        directorElement.value = directorName
+        selectOneDirector.appendChild(directorElement);
     }
-    selectDir.addEventListener('change', () => {
+    selectOneDirector.addEventListener('change', () => {
      document.getElementById('FirstPage').style.display="none";
      document.getElementById('informativeFile').style.display = 'block';
      document.getElementById('character').style.display = 'none';
@@ -69,17 +67,14 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
      document.getElementById('vehicles').style.display = 'none';
      document.getElementById('vehiclesFile').style.display = 'none'
      
-     let dataInput = selectDir.value;
+     let directorName = selectOneDirector.value;
      let dataFiltered =['']
-     dataFiltered = directorFilter(dataInput,data.films);  
+     dataFiltered = directorFilter(directorName,data.films);  
      const caption = 'He has directed '+ dataFiltered.length + ' films';
-    
-     console.log(directorFilter("Director No definido",data.films))
 
-     document.getElementById('Name').innerHTML = dataInput;
+     document.getElementById('Name').innerHTML = directorName;
      document.getElementById('caption').innerHTML = caption;
-     console.log('Numero de peliculas: '+ dataFiltered.length)
-    console.log(dataFiltered)
+
      /* ----- HTML DINAMICO*/
      let directorHTML = ""
      dataFiltered.forEach( oneDirector =>{
@@ -110,34 +105,33 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
     })
 
     //SELECCIONAR PRODUCTOR directo DESDE la DATA // ------------------------------Seccion PRODUCTOR
-let selectProd = document.getElementById('selectProducer');
+let selectTheProducer = document.getElementById('selectProducer');
 let producerOptions = data.films.map(function(film) {return film.producer})
 producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elementos
-    console.log(producerOptions);
+   
     for (let i = 0; i < producerOptions.length; i++){
         let producerName = producerOptions[i];
-        let prodElement = document.createElement("option")
+        let producerElement = document.createElement("option")
         
-        prodElement.textContent = producerName 
-        prodElement.value = producerName
-        selectProd.appendChild(prodElement);
+        producerElement.textContent = producerName 
+        producerElement.value = producerName
+        selectTheProducer.appendChild(producerElement);
     }
 
-    selectProd.addEventListener('change', () => {
+    selectTheProducer.addEventListener('change', () => {
      document.getElementById('FirstPage').style.display="none";
      document.getElementById('informativeFile').style.display = 'block';
      document.getElementById('character').style.display = 'none';
      document.getElementById('locations').style.display = 'none';
      document.getElementById('vehicles').style.display = 'none';
      document.getElementById('vehiclesFile').style.display = 'none'
-     let dataInput = selectProd.value;
+     let producerName = selectTheProducer.value;
      let dataFiltered =['']
-     dataFiltered = producerFilter(dataInput,data.films);  
+     dataFiltered = producerFilter(producerName,data.films);  
      const caption = 'He has produced '+ dataFiltered.length + ' films';
 
-     document.getElementById('Name').innerHTML = dataInput;
+     document.getElementById('Name').innerHTML = producerName;
      document.getElementById('caption').innerHTML = caption;
-     console.log('Numero de peliculas: '+ dataFiltered.length)
 
      /* ----- HTML DINAMICO*/
      let producerHTML = ""
@@ -160,9 +154,7 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
            <p><b>Movie characters:  </b><span id="people">${theProducer.names}</span></p>
          </div>
          </div>`
-
      }
-
      document.getElementById("informativeFile").innerHTML = producerHTML
      
     })// --- Final producer
@@ -172,7 +164,6 @@ producerOptions = getUniqueValues(producerOptions) //evita duplicacion de elemen
 let selectCharacter = document.getElementById('selectCharacter');
 let characterOptions = data.films.map(function(film) {return film.title})
 //characterOptions  = getUniqueValues(characterOptions ) //evita duplicacion de elementos
-    console.log(characterOptions );
 
 for(let i=0; i < characterOptions.length; i++){//Porque me lo pone arriba 
     let titleName = characterOptions[i];
@@ -191,12 +182,12 @@ selectCharacter.addEventListener('change',() =>{
     document.getElementById('vehicles').style.display = 'none';
     document.getElementById('vehiclesFile').style.display = 'none'
     
-    let dataInput = selectCharacter.value
+    let filmTitle= selectCharacter.value
     let dataFiltered = [''];
-    dataFiltered = characterFilter(dataInput, data.films); //argument
+    dataFiltered = characterFilter(filmTitle, data.films); //argument
     const caption = 'has '+ dataFiltered.length + ' characters';
 
-    document.getElementById('Name').innerHTML = dataInput;
+    document.getElementById('Name').innerHTML = filmTitle;
     document.getElementById('caption').innerHTML = caption;
 
     let characterHTML = ""
@@ -213,23 +204,21 @@ selectCharacter.addEventListener('change',() =>{
 
     }
     document.getElementById("character").innerHTML =  characterHTML
-    const btnCha = document.getElementsByClassName("btnCharacter")
+    const btnCharacter = document.getElementsByClassName("btnCharacter")
 
-    for(let i=0; i <btnCha.length; i++){
-        btnCha[i].addEventListener('click', (evt)=>{ // ---- Es un arreglo porque esta en event de class y varios elementos cuentan con esta clase
+    for(let i=0; i <btnCharacter.length; i++){
+        btnCharacter[i].addEventListener('click', (evt)=>{ // ---- Es un arreglo porque esta en event de class y varios elementos cuentan con esta clase
             evt.preventDefault;
-            let Character =  btnCha[i].value;
-            let matrizCha = ['']
-            let arrayCha = Character.split(",")
-            matrizCha[0] =arrayCha
-            console.log(matrizCha )
+            let character =  btnCharacter[i].value;
+            let provisionalCharacterMatriz = ['']
+            let arrayInfoCharacter = character.split(",")
+            provisionalCharacterMatriz[0] =arrayInfoCharacter
             
-            let html = ''
-            matrizCha.forEach( theCharacter=>{
-                html += generatorHTMLcharacter(theCharacter)
+            let htmlTheCharacter = ''
+            provisionalCharacterMatriz.forEach( theCharacter=>{
+                htmlTheCharacter += generatorHTMLcharacter(theCharacter)
              })
             function generatorHTMLcharacter(theCharacter){
-
                 return` 
                 <img src="${theCharacter[0]}" id="imgCharacter">
                 <div id="infoCharacter"><h1> ${theCharacter[1]} </h1>
@@ -239,24 +228,20 @@ selectCharacter.addEventListener('change',() =>{
                 <p><b>Color de ojos: </b>${theCharacter[5]}</p>
                 <p><b>Color de cabello: </b>${theCharacter[6]}</p></br>
                 </div>`
-
             }
-            document.getElementById("character").innerHTML = html
-            //hoaaa 
-
+            document.getElementById("character").innerHTML = htmlTheCharacter
+          
         })
     }
    })// final de Character
 ///// -----------------------------------------------------------------------seccion Location
 
 let selectLocation = document.getElementById('selectLocation');
-   let locationOptions = titleLocation(data.films)
-   console.log(locationOptions)
-   for(let i=0; i < locationOptions.length; i++){//Porque me lo pone arriba 
+   let locationOptions = locationTitleToSelect(data.films)
+
+   for(let i=0; i < locationOptions.length; i++){ 
     let Location = document.createElement('option')
-
-
-    Location.textContent =locationOptions[i] //¿Por que ?
+    Location.textContent =locationOptions[i] 
     Location.value = locationOptions[i]
     selectLocation.appendChild(Location)
 }
@@ -268,17 +253,16 @@ selectLocation.addEventListener('change', ()=> {
     document.getElementById('locations').style.display = 'flex';
     document.getElementById('vehicles').style.display = 'none';
     document.getElementById('vehiclesFile').style.display = 'none';
-    let dataInput = selectLocation.value
-    let dataFiltered = [''];
-    dataFiltered = locationFilter(dataInput, data.films); //argument
-    console.log(dataFiltered)
-    const caption = 'has'+ dataFiltered.length + ' locations.';
-    document.getElementById('Name').innerHTML = dataInput;
+    let filmTitle = selectLocation.value
+    let locationFiltered = [''];
+    locationFiltered = locationFilter(filmTitle, data.films); //argument
+    const caption = 'has'+ locationFiltered.length + ' locations.';
+    document.getElementById('Name').innerHTML =filmTitle;
     document.getElementById('caption').innerHTML = caption;
 
     /* ----- HTML DINAMICO*/
     let locationHTML = ""
-    dataFiltered.forEach( thelocation=>{
+    locationFiltered.forEach( thelocation=>{
         locationHTML += generatorLocationHTML(thelocation)
     })
     function generatorLocationHTML(thelocation){
@@ -294,9 +278,7 @@ selectLocation.addEventListener('change', ()=> {
           <p><b>Residentes: </b><span id="producer">${thelocation.residents[0]}</span></p>
         </div>
         </div>`
-
     }
-
     document.getElementById("locations").innerHTML = locationHTML
 })
 
@@ -304,7 +286,7 @@ selectLocation.addEventListener('change', ()=> {
  let selectVehicle= document.getElementById('selectVehicle');
  let vehicleOptions = data.films.filter((film) => film.vehicles.length > 0)
     .map(function(film) {return film.title})
-       console.log(vehicleOptions);
+    
        for (let i = 0; i < vehicleOptions.length; i++){
            let vehicleName = vehicleOptions[i];
            let vehicleElement = document.createElement("option")
@@ -322,16 +304,16 @@ selectLocation.addEventListener('change', ()=> {
     document.getElementById('vehicles').style.display = 'flex';
     document.getElementById('vehiclesFile').style.display = 'flex';
     document.getElementById('locations').style.display = 'none';
-    let dataInput = selectVehicle.value
-    let dataFiltered = [''];
-    dataFiltered = vehicleFilter(dataInput, data.films); //argument
-    const caption = 'has '+ dataFiltered.length + ' vehicles';
-    console.log(dataFiltered)
+    document.getElementById('character').style.display = 'none';
+    let filmTitle = selectVehicle.value
+    let vehiclesFiltered = [''];
+    vehiclesFiltered = vehicleFilter(filmTitle, data.films); //argument
+    const caption = 'has '+ vehiclesFiltered.length + ' vehicles';
 
     document.getElementById('caption').innerHTML = caption;
 
     let vehicleHTML = ""
-    dataFiltered.forEach( theVehicle=>{
+    vehiclesFiltered.forEach( theVehicle=>{
        vehicleHTML += generatorVehicleHTML(theVehicle)
     })
 
@@ -352,7 +334,6 @@ selectLocation.addEventListener('change', ()=> {
     }
     
     document.getElementById("vehiclesFile").innerHTML = vehicleHTML
-    document.getElementById("")
 } )
 
 function myFunction() {

@@ -1,5 +1,5 @@
 
-import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,producerFilter ,joinPeopleName,posters, getUniqueValues, titleLocation } from '../src/data.js';
+import { orderBy , directorFilter , characterFilter, locationFilter, vehicleFilter ,producerFilter ,joinPeopleName,showPosters, getUniqueValues, locationTitleToSelect } from '../src/data.js';
 
 import data from './data/ghibli.js'
 
@@ -850,19 +850,19 @@ describe('vehicleFilter', () => {
   });
 });
 
-describe('posters', () => {
+describe('showPosters', () => {
 
-  it('deberia retornar el arreglo de posters', () => {
-    expect(typeof posters).toBe('function');
+  it('deberia retornar el arreglo de showPosters', () => {
+    expect(typeof showPosters).toBe('function');
    // expect(Array.isArray(result)).toBe(true)
   });
 
   it('should not return undefined', () => {
-    const result= posters({ films: data })
+    const result= showPosters({ films: data })
     expect(result).not.toEqual(undefined);
   })
   it('should return an array of urls', () =>{
-    let result= posters({ films: data })
+    let result= showPosters({ films: data })
     for(let i = 0; i < result.length; i++)
       expect(result[i]).toMatch(/^https?:\/\//gi)
   })
@@ -884,13 +884,13 @@ describe('getUniqueValues', () => {
   });
 });
 
-describe('titleLocation', () => {
+describe('locationTitleToSelect', () => {
   it('is a function', () => {
-    expect(typeof titleLocation).toBe('function');
+    expect(typeof locationTitleToSelect).toBe('function');
   });
 
   it('returns listado de titulos de pelicula que cuentan con locaciones', () => {
-    const result = titleLocation(dataGhibli)
+    const result = locationTitleToSelect(dataGhibli)
     expect(result).toEqual([dataGhibli[0].title,dataGhibli[1].title,dataGhibli[2].title,dataGhibli[4].title]);
   }); 
 });

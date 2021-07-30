@@ -155,7 +155,7 @@ figure {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-#movies{
+#allFilms{
     display: flex;
     justify-content: space-evenly;
     align-content: stretch;
@@ -188,7 +188,7 @@ footer{
 #FirstPage{
     padding: 1rem;
 }
-#movies figcaption{
+#allFilms figcaption{
     font-size: x-large;
     background: rgba(191, 128, 122, 0.5);
 }

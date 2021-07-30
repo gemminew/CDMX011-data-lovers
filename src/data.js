@@ -1,14 +1,11 @@
-export const posters = (data) => {
-    let DirPoster = [];
+export const showPosters = (data) => {
+    let posters = [];
     let i=0;
     do {
-      DirPoster.push(data.films[i].poster);
-      //console.log(DirPoster[i]);
+      posters.push(data.films[i].poster);
       i++
-
     } while (i<data.films.length);
-      //console.log(DirPoster[i]);
-    return DirPoster;
+    return posters;
 };
 
 export const getUniqueValues = (array) => ( 
@@ -23,7 +20,6 @@ export const orderBy = (films, option) =>{
     const orderByAtoZ = films.sort((film1, film2)=>{
       return (film1.title < film2.title) ? -1 : 1;
     })
-    console.log(orderByAtoZ)
     return orderByAtoZ //Agrege esto porque no regresaba nada
   }
   else if (option == 'ZA'){
@@ -61,54 +57,46 @@ export const orderBy = (films, option) =>{
 
 //obtener valores unicos en select input
 //
-export const directorFilter = (dataInput,films) => {
+export const directorFilter = (directorName,films) => {
     const directorFilms = films.filter(function(films){
-       return films.director === dataInput;})
+       return films.director === directorName;})
        .map(function(films){
          return films 
        })
-       console.log(directorFilms);
-       
        return directorFilms
 }
 
 export const joinPeopleName = (film) => {
-  let numberPeople = film.people;
+  let allPeopleOfFilm = film.people;
   let namesOfPeople = [];
-    for(let j=0; j<numberPeople.length; j++){
+    for(let j=0; j<allPeopleOfFilm.length; j++){
       namesOfPeople[j] = film.people[j].name ;
     }
     let names = namesOfPeople.join(', ');
-
-    console.log(names)
  return names 
 }
 
-export const producerFilter = (dataInput,films) => {
+export const producerFilter = (producerName,films) => {
 
   const producers = films.filter(function(films){
-     return films.producer === dataInput;})
+     return films.producer === producerName;})
      .map(function(films){
       return films
      })
      return producers
 }
 
-export const characterFilter = (dataInput,films) => {
-
+export const characterFilter = (filmTitle,films) => {
   const characters = films // parameter
-    .filter( function(banana){ return banana.title === dataInput;} ) 
-    .map(function(banana){
-      let listOfPeople = banana.people;
-      console.log('characters:')
-      console.log(listOfPeople.length)
+    .filter( function(film){ return film.title === filmTitle;} ) 
+    .map(function(film){
+      let listOfPeople = film.people;
       return listOfPeople
     })[0] // 
     return characters
   }
 
-
-export const titleLocation = (films) =>{
+export const locationTitleToSelect = (films) =>{
   let titlesOfFilmsWithLocation = ['']
   let j=0
   for(let i=0; i< films.length ;i++){
@@ -121,18 +109,17 @@ export const titleLocation = (films) =>{
   return titlesOfFilmsWithLocation
 }
 
-export const locationFilter = (dataInput,films) =>{
-  const locations = films.filter(function(film){return film.title === dataInput})
+export const locationFilter = (filmTitle,films) =>{
+  const locations = films.filter(function(film){return film.title === filmTitle})
   .map(function(film){
     return film.locations
   })[0]
   return locations
 }
 
-  export const vehicleFilter = (dataInput, films) => {
-
+  export const vehicleFilter = (filmTitle, films) => {
     const vehicles = films 
-    .filter(function(film){ return film.title == dataInput;})
+    .filter(function(film){ return film.title == filmTitle;})
     .map(function(film){
       let listOfVehicles = film.vehicles;
       return listOfVehicles
