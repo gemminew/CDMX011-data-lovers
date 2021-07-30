@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+
+body{
+    background-color:  rgba(217, 156, 184, 0.2);
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+} 
+
+.selInput{
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    font-weight: bold;
+}
+
+header{
+    display: flex;
+    flex-flow: row wrap;
+
+    background-color: #026873;
+    text-align: justify;
+    padding: .2rem;
+/*     width: 1345px;
+    height: 80px; */
+}
+
+#carousel{
+    max-width: -webkit-fill-available; /*1345px*/
+    height: 490px;
+}
+#Banner{
+    color: #fff;
+    font-size: 50px;
+    /*padding: 10px; */
+    padding-left: 90px;
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+}
+#LogoSG{
+    width: 250px; 
+    height: 60px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+    
+header{
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #026873;
+    text-align: justify;
+    padding: .2rem;
+    height: 72px; 
+}
+.search-bar select{
+    max-width: 150px;
+}
+
+.search-bar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: #C9D991;
+}
+
+.selInput {
+    border:0px;
+    background:none;
+    /*-webkit-appearance: none;*/
+    border-style: none;
+}
+.selInput:hover{
+    background-color: #EBFFA5;
+}
+.selectSearh{
+    font-size: 30px;
+}
+
+/*.selInput:hover*/
+option{
+    background-color: #EBFFA5;
+    padding: 1em;
+}
+.search-bar select{
+   padding: 15px !important;
+   outline: 0;
+   transition: all 0.25s ease;
+}
+
+.carousel{ /**Tuve que cambiarlo a clase i don´t kwon why*/
+    max-width: -webkit-fill-available; /*1345px*/
+    height: 200px;
+    background-size: cover;
+    background-image: url(img/chihirOO.jpg);
+}
+#Banner{
+    color: #fff;
+    font-size: 36px;
+    margin: 5px;
+/* master*/
+}
+#title{
+    text-align: center;
+}
+#sortinGhibli{
+    display: block;
+	width: 50%;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+	font-size: 1em;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    margin: 30px;
+    /*padding-left: 200px;*/
+}
+#sortinGhibli:hover{
+	background: rgba(217, 156, 184, 0.5);
+}
+#selectCenter{
+    padding-left: 400px;
+
+}
+figure {
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+#movies{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: stretch;
+    flex-flow: row wrap !important; 
+}
+
+.poster {
+    flex-basis: 45%; /* explanation below */
+    margin-bottom: 1rem;
+}
+
+.poster img{
+    width: 100%;
+}
+figcaption.poster { /*NO SE PORQUE NO SALEEE ------------------------------------------------*/
+    background-color: #000 !important;
+    color: #fff;
+
+}
+
+/*.poster:hover{
+    background-transition: swep to top;
+}*/
+footer{
+    max-width: -webkit-fill-available; 
+    height: 60px; 
+    background: #C9D991;
+}
+
+#FirstPage{
+    padding: 1rem;
+}
+#movies figcaption{
+    font-size: x-large;
+    background: rgba(191, 128, 122, 0.5);
+}
+.posterFilter{
+    display: flex;
+    padding: 1rem;
+}
+
+.Informative{
+    padding: 1.5rem 2.5rem;
+}
+
+.flexRow{
+    display: block !important;
+}
+#SecoundPage{
+    padding: 2rem;
+    margin-bottom: 1rem;
+    padding-top: 0rem;
+    
+}
+
+#caption{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    
+}
+
+option{
+    font-family: sans-serif;
+}
+
+#Name{
+    text-align: center;
+    font-size: 2rem;
+}
+#informativeFile{
+    padding-left: 60px;
+    padding-right: 60px;
+}
+hr{
+    color: #000;
+}
+
+#character{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: stretch;
+    flex-flow: row wrap !important;
+    padding-left: 100px;
+    /*padding-right: 100px;*/
+}
+#character figure {
+    border:none;
+    padding: 4px;
+    margin: auto;
+    align-content: center;
+    border-radius: 20px;
+  }
+#character figure img { /*hace que la figure se ajuste al tamaño que tiene la imagen*/
+   width: 250px;
+    height: 220px;
+    object-fit: cover; /*Es para que la imagen se ajuste al tama;o */
+    display: block;
+    border-radius: 30px;
+
+}
+#character figure img:hover{
+    transform: scale(1.1);
+    border: solid 5px;
+    border-color: rgba(191, 128, 122, 0.5);
+    animation: bounce 1s;
+}
+#character figcaption {
+    background-color: rgba(191, 128, 122, 0.5);
+    color: #000;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+    font-size: x-large; /*no se porque no me quiere cambiar el tama;o de la letra*/
+    border-radius: 30px;
+  }
+#infoCharacter{
+
+    padding: 10px;
+
+    /*padding: 10px;*/
+   /* margin-right: 200px;*/
+
+    border: solid;
+    border-radius: 30px;
+}
+#imgCharacter{
+    border-radius: 30px;
+   /* margin-left: 200px;*/
+
+}
+button{
+    border: none;
+    flex-direction: column wrap !important;
+}
+#locations{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-basis: 50%;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+.informativeLocation{
+    padding: 10px;
+}
+
+#vehiclesFile{
+    justify-content: center;
+}
+/*flex-wrap: wrap;*/

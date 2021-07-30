@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="styleResponsive.css"   media="(max-device-width: 750px)"/>
+  </head>
+  <body>
+    <header>
+      <div id="Banner" onclick="window.location.reload()">
+        <img src="img/Studio_Ghibli_portal_logo.png" alt="" id="LogoSG"> <!--Studios Ghibli-->
+      </div>
+    </header>
+    <main>
+      <div class="carousel"></div>
+      <div class="search-bar">   
+        <h2> Search by: </h2>
+          <select class="selInput" id="selectDirector">
+            <option value="" selected disabled><span>Directors</span> </option>
+          </select>
+          <select class="selInput" id="selectProducer">
+            <option value="" selected disabled>Producers</option>
+          </select>
+          <select class="selInput" id="selectCharacter">
+            <option value="" selected disabled>Characters of </option>
+          </select>
+          <select class="selInput" id="selectLocation">
+            <option value="" selected disabled>Locations</option>
+          </select>
+          <select class="selInput" id="selectVehicle">
+            <option value="" selected disabled> Vehicles</option>
+          </select>
+       </div>
+      <div id="FirstPage">
+        <h1 id="title">ALL FILMS</h1>
+        <div id="selectCenter">
+        <select id="sortinGhibli" style="text-align: center !important; align-items: center !important;">
+          <option value="" selected disabled>Sort by</option>
+          <option value="AZ">A - Z</option>
+          <option value="ZA">Z - A</option>
+          <option value="scoreMaxToMin">Highest score</option>
+          <option value="scoreMinToMax">Lowest score</option>
+          <option value="dateMaxToMin">More recent</option>
+          <option value="dateMinToMax">Less recent</option>
+        </select>
+      </div>
+          <!--<select class="sortCss" id="sortBy"></select>-->
+          <div class="layout">    
+              <div class="moviesPosters" id="movies"></div>
+            </div>   
+      </div><!--Fist Page-->
+          <div id="SecoundPage">
+            <h1 id="Name"> </h1>
+            <p id="caption"></p>
+              <div id="informativeFile"></div>
+              <div id="character"></div>
+              <div id="locations"></div>
+              <div id="characterFile"></div>
+              <div id="vehicles"></div>
+              <div id="vehiclesFile"></div>
+          </div>
+    </main>
+    <footer>
+      <div id="socialMedia"></div>
+    </footer>
+    <div id="root"></div>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
