@@ -336,12 +336,18 @@ selectLocation.addEventListener('change', ()=> {
     document.getElementById("vehiclesFile").innerHTML = vehicleHTML
 } )
 
-function myFunction() {
-    var x = document.getElementById("mySelects");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
-  console.log(myFunction)
+//window.addEventListener('load', init, false);
+//function init() {
+    let div = document.getElementById('mySelects');
+    div.style.visibility = 'visible';
+    let boton = document.getElementById('btnToMovilMenu');
+    boton.addEventListener('click', function (e) {
+        e.preventDefault;
+        if(div.style.visibility === 'hidden'){
+            div.style.visibility = 'visible';
+        }else{
+            div.style.visibility = 'hidden';
+        }
+    }//, false
+    );
+//}

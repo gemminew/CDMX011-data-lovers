@@ -44,16 +44,64 @@ header{
     padding: .2rem;
     height: 72px; 
 }
-.
+/* #mySelects{
+   visibility: hidden !important;
+}*/
+select{
+    font-size: x-large !important;
+}
+.search-bar select{
+    max-width: 150px;
+}
+.search-bar{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: #C9D991;
+    padding: 0px 50px;
+}
+.search-bar ul li{
+    list-style: none;
+    display: block;
+    margin: 60px 0px;
+    line-height: 20px;
+}
+.selInput {
+    border:0px;
+    background:none;
+    /*-webkit-appearance: none;*/
+    border-style: none;
+}
+.selInput:hover{
+    background-color: #EBFFA5;
+}
+#btnToMovilMenu{
+    color: #000;
+    font-size: 25px;
+    cursor: pointer;
+    float: right;
+    display: block;
+}
+    .search-bar ul{
+        width: 100%;
+        height: 100vh; /*VH */
+        background-color: #53694c;
+        position: fixed;
+        top: 335px;
+        left: 0%;
+        text-align: center;
+        transition: 0.4s;
+    }
+  
+    input[type="checkbox"]:checked {
+        /*.& cuando la clase se agregue*/
+        left: 0;
+        background-color: #000;
+    }
 /*.selInput:hover*/
 option{
     background-color: #EBFFA5;
     padding: 1em;
-}
-.search-bar select{
-   padding: 15px !important;
-   outline: 0;
-   transition: all 0.25s ease;
 }
 
 .carousel{ /**Tuve que cambiarlo a clase i don´t kwon why*/
