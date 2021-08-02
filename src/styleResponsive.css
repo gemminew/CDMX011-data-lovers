@@ -5,14 +5,7 @@ body{
     background-color:  rgba(217, 156, 184, 0.2);
     margin: auto;
     font-family: 'Playfair Display', serif;
-} 
-
-.selInput{
-    font-family: 'Playfair Display', serif;
-    font-size: medium;
-    font-weight: bold;
 }
-
 header{
     display: flex;
     flex-flow: row wrap;
@@ -20,8 +13,7 @@ header{
     background-color: #026873;
     text-align: justify;
     padding: .2rem;
-/*     width: 1345px;
-    height: 80px; */
+
 }
 
 #carousel{
@@ -31,9 +23,7 @@ header{
 #Banner{
     color: #fff;
     font-size: 50px;
-    /*padding: 10px; */
     padding-left: 90px;
-    margin: auto;
     font-family: 'Playfair Display', serif;
 }
 #LogoSG{
@@ -52,17 +42,31 @@ header{
     padding: .2rem;
     height: 72px; 
 }
+
+select{
+    font-size: x-large !important;
+}
 .search-bar select{
     max-width: 150px;
 }
-
+.search-bar button{
+    border: none;
+    background-color: #C9D991;
+    font-size: x-large;
+}
 .search-bar{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #C9D991;
+    padding: 0px 50px;
 }
-
+.search-bar ul li{
+    list-style: none;
+    display: block;
+    margin: 60px 0px;
+    line-height: 20px;
+}
 .selInput {
     border:0px;
     background:none;
@@ -72,33 +76,37 @@ header{
 .selInput:hover{
     background-color: #EBFFA5;
 }
-.selectSearh{
-    font-size: 30px;
+#btnToMovilMenu{
+    color: #000;
+    font-size: 25px;
+    cursor: pointer;
+    float: right;
+    display: block;
 }
+    .search-bar ul{
+        width: 100%;
+        height: 100vh; /*VH */
+        background-color: #53694c;
+        position: fixed;
+        top: 335px;
+        left: -105%;
+        text-align: center;
+        transition: 0.4s;
+    }
 
-/*.selInput:hover*/
+  
 option{
     background-color: #EBFFA5;
     padding: 1em;
 }
-.search-bar select{
-   padding: 15px !important;
-   outline: 0;
-   transition: all 0.25s ease;
-}
 
-.carousel{ /**Tuve que cambiarlo a clase i don´t kwon why*/
-    max-width: -webkit-fill-available; /*1345px*/
+.carousel{ 
+    max-width: -webkit-fill-available; 
     height: 200px;
     background-size: cover;
     background-image: url(img/chihirOO.jpg);
 }
-#Banner{
-    color: #fff;
-    font-size: 36px;
-    margin: 5px;
-/* master*/
-}
+
 #title{
     text-align: center;
 }
@@ -119,14 +127,17 @@ option{
 	background: rgba(217, 156, 184, 0.5);
 }
 #selectCenter{
-    padding-left: 400px;
+    padding-left: 20px;
 
+}
+#filterImg{
+    width: inherit;
 }
 figure {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-#movies{
+#allFilms{
     display: flex;
     justify-content: space-evenly;
     align-content: stretch;
@@ -134,22 +145,23 @@ figure {
 }
 
 .poster {
-    flex-basis: 45%; /* explanation below */
+    flex-basis: 45%;
     margin-bottom: 1rem;
 }
 
 .poster img{
     width: 100%;
 }
-figcaption.poster { /*NO SE PORQUE NO SALEEE ------------------------------------------------*/
+figcaption.poster { 
     background-color: #000 !important;
     color: #fff;
 
 }
+.posterFilter{
+    width: -webkit-fill-available;
+}
 
-/*.poster:hover{
-    background-transition: swep to top;
-}*/
+
 footer{
     max-width: -webkit-fill-available; 
     height: 60px; 
@@ -159,7 +171,7 @@ footer{
 #FirstPage{
     padding: 1rem;
 }
-#movies figcaption{
+#allFilms figcaption{
     font-size: x-large;
     background: rgba(191, 128, 122, 0.5);
 }
@@ -220,10 +232,10 @@ hr{
     align-content: center;
     border-radius: 20px;
   }
-#character figure img { /*hace que la figure se ajuste al tamaño que tiene la imagen*/
+#character figure img { 
    width: 250px;
     height: 220px;
-    object-fit: cover; /*Es para que la imagen se ajuste al tama;o */
+    object-fit: cover; 
     display: block;
     border-radius: 30px;
 
@@ -240,23 +252,17 @@ hr{
     font-style: italic;
     padding: 2px;
     text-align: center;
-    font-size: x-large; /*no se porque no me quiere cambiar el tama;o de la letra*/
+    font-size: x-large; 
     border-radius: 30px;
   }
+
 #infoCharacter{
-
     padding: 10px;
-
-    /*padding: 10px;*/
-   /* margin-right: 200px;*/
-
     border: solid;
     border-radius: 30px;
 }
 #imgCharacter{
     border-radius: 30px;
-   /* margin-left: 200px;*/
-
 }
 button{
     border: none;
