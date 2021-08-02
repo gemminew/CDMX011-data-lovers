@@ -85,7 +85,7 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
          return ` 
          <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
          background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
-            <div class="posterFilter" style="padding: 1rem;">
+            <div class="posterFilter" style="padding: 1rem; ">
                 <img src="${oneDirector.poster}" id="filterImg"></div>
             <div class="Informative">
             <h1>${oneDirector.title}</h1><hr color="#000">
@@ -256,7 +256,7 @@ selectLocation.addEventListener('change', ()=> {
     let filmTitle = selectLocation.value
     let locationFiltered = [''];
     locationFiltered = locationFilter(filmTitle, data.films); //argument
-    const caption = 'has'+ locationFiltered.length + ' locations.';
+    const caption = 'has '+ locationFiltered.length + ' locations.';
     document.getElementById('Name').innerHTML =filmTitle;
     document.getElementById('caption').innerHTML = caption;
 
@@ -340,19 +340,15 @@ selectLocation.addEventListener('change', ()=> {
 //function init() {
     let contador =0
     let div = document.getElementsByTagName('ul');
-    //div.style.visibility = 'visible';
     let boton = document.getElementById('btnToMovilMenu');
     boton.addEventListener('click', function (e) {
-        
-        contador = contador + 1
-        console.log(contador)
+        contador ++
         e.preventDefault;
         if(contador%2 != 0 ){
-            console.log('entreeeee')
             div[0].style.left = '0%';
         }else{
             div[0].style.left = '-105%';
         }
-    }//, false
+    }
     );
 //}

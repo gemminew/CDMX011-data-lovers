@@ -137,6 +137,9 @@ option{
     padding-left: 20px;
 
 }
+#filterImg{
+    width: inherit;
+}
 figure {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
