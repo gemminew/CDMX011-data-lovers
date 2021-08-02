@@ -16,7 +16,7 @@ body{
 header{
     display: flex;
     flex-flow: row wrap;
-
+    justify-content: space-between;
     background-color: #026873;
     text-align: justify;
     padding: .2rem;
