@@ -85,7 +85,7 @@ directorOptions = getUniqueValues(directorOptions) //evita duplicacion de elemen
          return ` 
          <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
          background-color: #D9B8B5; border-radius: 1rem; margin-bottom: 1rem;">
-            <div class="posterFilter" style="padding: 1rem;">
+            <div class="posterFilter" style="padding: 1rem; ">
                 <img src="${oneDirector.poster}" id="filterImg"></div>
             <div class="Informative">
             <h1>${oneDirector.title}</h1><hr color="#000">
@@ -256,7 +256,7 @@ selectLocation.addEventListener('change', ()=> {
     let filmTitle = selectLocation.value
     let locationFiltered = [''];
     locationFiltered = locationFilter(filmTitle, data.films); //argument
-    const caption = 'has'+ locationFiltered.length + ' locations.';
+    const caption = 'has '+ locationFiltered.length + ' locations.';
     document.getElementById('Name').innerHTML =filmTitle;
     document.getElementById('caption').innerHTML = caption;
 
@@ -321,7 +321,7 @@ selectLocation.addEventListener('change', ()=> {
         return `
         <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
         background-color: bisque; border-radius: 1rem; margin-bottom: 10px;">
-        <div class="posterFilter" style="padding: 1rem;"><img src="${theVehicle.img}" id="filterImg"></div>
+        <div class="posterFilter" style="padding: 1rem; width: -webkit-fill-available;"><img src="${theVehicle.img}" id="filterImg"></div>
         <div class="informativeLocation">
                 <p style="font-size: 50px;"><b> ${theVehicle.name}</b></p>
                 <p><b>Description: </b> ${theVehicle.description}<p>
@@ -336,12 +336,19 @@ selectLocation.addEventListener('change', ()=> {
     document.getElementById("vehiclesFile").innerHTML = vehicleHTML
 } )
 
-function myFunction() {
-    var x = document.getElementById("mySelects");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
+//window.addEventListener('load', init, false);
+//function init() {
+    let contador =0
+    let div = document.getElementsByTagName('ul');
+    let boton = document.getElementById('btnToMovilMenu');
+    boton.addEventListener('click', function (e) {
+        contador ++
+        e.preventDefault;
+        if(contador%2 != 0 ){
+            div[0].style.left = '0%';
+        }else{
+            div[0].style.left = '-105%';
+        }
     }
-  }
-  console.log(myFunction)
+    );
+//}
