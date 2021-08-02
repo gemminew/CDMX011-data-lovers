@@ -23,9 +23,7 @@ header{
 #Banner{
     color: #fff;
     font-size: 50px;
-    /*padding: 10px; */
     padding-left: 90px;
-    margin: auto;
     font-family: 'Playfair Display', serif;
 }
 #LogoSG{
@@ -52,6 +50,11 @@ select{
 }
 .search-bar select{
     max-width: 150px;
+}
+.search-bar button{
+    border: none;
+    background-color: #C9D991;
+    font-size: x-large;
 }
 .search-bar{
     display: flex;
@@ -88,17 +91,17 @@ select{
         background-color: #53694c;
         position: fixed;
         top: 335px;
-        left: 0%;
+        left: -105%;
         text-align: center;
         transition: 0.4s;
     }
+
   
-    input[type="checkbox"]:checked {
-        /*.& cuando la clase se agregue*/
+ /*   input[type="checkbox"]:checked {
+        .& cuando la clase se agregue
         left: 0;
         background-color: #000;
-    }
-/*.selInput:hover*/
+    }*/
 option{
     background-color: #EBFFA5;
     padding: 1em;
@@ -110,12 +113,7 @@ option{
     background-size: cover;
     background-image: url(img/chihirOO.jpg);
 }
-#Banner{
-    color: #fff;
-    font-size: 36px;
-    margin: 5px;
-/* master*/
-}
+
 #title{
     text-align: center;
 }
@@ -162,6 +160,9 @@ figcaption.poster { /*NO SE PORQUE NO SALEEE -----------------------------------
     background-color: #000 !important;
     color: #fff;
 
+}
+.posterFilter{
+    width: -webkit-fill-available;
 }
 
 /*.poster:hover{

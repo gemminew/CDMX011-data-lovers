@@ -321,7 +321,7 @@ selectLocation.addEventListener('change', ()=> {
         return `
         <div class="flexRow" style="display: flex; font-family: sans-serif; flex-flow: nowrap; 
         background-color: bisque; border-radius: 1rem; margin-bottom: 10px;">
-        <div class="posterFilter" style="padding: 1rem;"><img src="${theVehicle.img}" id="filterImg"></div>
+        <div class="posterFilter" style="padding: 1rem; width: -webkit-fill-available;"><img src="${theVehicle.img}" id="filterImg"></div>
         <div class="informativeLocation">
                 <p style="font-size: 50px;"><b> ${theVehicle.name}</b></p>
                 <p><b>Description: </b> ${theVehicle.description}<p>
@@ -338,15 +338,20 @@ selectLocation.addEventListener('change', ()=> {
 
 //window.addEventListener('load', init, false);
 //function init() {
-    let div = document.getElementById('mySelects');
-    div.style.visibility = 'visible';
+    let contador =0
+    let div = document.getElementsByTagName('ul');
+    //div.style.visibility = 'visible';
     let boton = document.getElementById('btnToMovilMenu');
     boton.addEventListener('click', function (e) {
+        
+        contador = contador + 1
+        console.log(contador)
         e.preventDefault;
-        if(div.style.visibility === 'hidden'){
-            div.style.visibility = 'visible';
+        if(contador%2 != 0 ){
+            console.log('entreeeee')
+            div[0].style.left = '0%';
         }else{
-            div.style.visibility = 'hidden';
+            div[0].style.left = '-105%';
         }
     }//, false
     );
