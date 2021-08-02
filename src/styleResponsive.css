@@ -9,11 +9,11 @@ body{
 header{
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
     background-color: #026873;
     text-align: justify;
     padding: .2rem;
-/*     width: 1345px;
-    height: 80px; */
+
 }
 
 #carousel{
@@ -42,9 +42,7 @@ header{
     padding: .2rem;
     height: 72px; 
 }
-/* #mySelects{
-   visibility: hidden !important;
-}*/
+
 select{
     font-size: x-large !important;
 }
@@ -97,18 +95,13 @@ select{
     }
 
   
- /*   input[type="checkbox"]:checked {
-        .& cuando la clase se agregue
-        left: 0;
-        background-color: #000;
-    }*/
 option{
     background-color: #EBFFA5;
     padding: 1em;
 }
 
-.carousel{ /**Tuve que cambiarlo a clase i don´t kwon why*/
-    max-width: -webkit-fill-available; /*1345px*/
+.carousel{ 
+    max-width: -webkit-fill-available; 
     height: 200px;
     background-size: cover;
     background-image: url(img/chihirOO.jpg);
@@ -152,14 +145,14 @@ figure {
 }
 
 .poster {
-    flex-basis: 45%; /* explanation below */
+    flex-basis: 45%;
     margin-bottom: 1rem;
 }
 
 .poster img{
     width: 100%;
 }
-figcaption.poster { /*NO SE PORQUE NO SALEEE ------------------------------------------------*/
+figcaption.poster { 
     background-color: #000 !important;
     color: #fff;
 
@@ -168,9 +161,7 @@ figcaption.poster { /*NO SE PORQUE NO SALEEE -----------------------------------
     width: -webkit-fill-available;
 }
 
-/*.poster:hover{
-    background-transition: swep to top;
-}*/
+
 footer{
     max-width: -webkit-fill-available; 
     height: 60px; 
@@ -241,10 +232,10 @@ hr{
     align-content: center;
     border-radius: 20px;
   }
-#character figure img { /*hace que la figure se ajuste al tamaño que tiene la imagen*/
+#character figure img { 
    width: 250px;
     height: 220px;
-    object-fit: cover; /*Es para que la imagen se ajuste al tama;o */
+    object-fit: cover; 
     display: block;
     border-radius: 30px;
 
@@ -261,23 +252,17 @@ hr{
     font-style: italic;
     padding: 2px;
     text-align: center;
-    font-size: x-large; /*no se porque no me quiere cambiar el tama;o de la letra*/
+    font-size: x-large; 
     border-radius: 30px;
   }
+
 #infoCharacter{
-
     padding: 10px;
-
-    /*padding: 10px;*/
-   /* margin-right: 200px;*/
-
     border: solid;
     border-radius: 30px;
 }
 #imgCharacter{
     border-radius: 30px;
-   /* margin-left: 200px;*/
-
 }
 button{
     border: none;
